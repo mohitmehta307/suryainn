@@ -11,13 +11,13 @@
   const loader = document.getElementById('fantasy-loader');
   if (loader) {
     const bar = loader.querySelector('.loader-bar');
-    setTimeout(() => bar && bar.classList.add('go'), 80);
+    setTimeout(() => bar && bar.classList.add('go'), 50);
     window.addEventListener('load', () => {
-      setTimeout(() => loader.classList.add('hide'), 600);
-      setTimeout(() => loader.remove(), 1400);
+      setTimeout(() => loader.classList.add('hide'), 200);
+      setTimeout(() => loader.remove(), 700);
     });
-    // Fallback: remove after 1.5s regardless
-    setTimeout(() => loader && loader.classList.add('hide'), 1500);
+    // Fallback: hide after 800ms regardless
+    setTimeout(() => loader && loader.classList.add('hide'), 800);
   }
 
   /* ════════════════════════════════

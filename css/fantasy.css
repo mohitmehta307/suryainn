@@ -4,119 +4,46 @@
    ══════════════════════════════════════════════════════════ */
 
 /* ══════════════════════════════════════
-   SUNRISE LOADER
+   MINIMALIST LOADER
    ══════════════════════════════════════ */
 #fantasy-loader {
   position: fixed; inset: 0; z-index: 9999;
-  background: #0d1f2d;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-#fantasy-loader.hide {
-  opacity: 0; pointer-events: none; transform: scale(1.04);
-}
-.loader-scene {
-  position: relative; width: 100%; height: 100%;
+  background: #1e3a2f;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: flex-end;
-  padding-bottom: 10vh;
+  align-items: center; justify-content: center; gap: 10px;
+  transition: opacity 0.5s ease;
 }
-.loader-landscape {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover;
-  animation: loaderFadeIn 0.6s ease both;
-}
-@keyframes loaderFadeIn {
-  from { opacity: 0; } to { opacity: 1; }
-}
-/* Sun rises from below horizon */
-.loader-sun {
-  animation: sunRiseAnim 2s cubic-bezier(0.4,0,0.2,1) forwards;
-  will-change: transform;
-  transform-origin: 200px 300px;
-}
-@keyframes sunRiseAnim {
-  from { transform: translateY(80px); opacity: 0.3; }
-  to   { transform: translateY(0);    opacity: 1; }
-}
-.loader-sun-halo {
-  animation: haloExpand 2.5s ease-out forwards;
-  will-change: opacity, transform;
-  transform-origin: 200px 185px;
-}
-@keyframes haloExpand {
-  from { transform: scale(0.5); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
-}
-.loader-sun-rays {
-  animation: raysAppear 2s ease-out 0.8s both;
-  will-change: opacity;
-}
-@keyframes raysAppear {
-  from { opacity: 0; } to { opacity: 0.5; }
-}
-.loader-stars {
-  animation: starsFade 2s ease-out 0.5s both;
-  will-change: opacity;
-}
-@keyframes starsFade {
-  from { opacity: 0.6; } to { opacity: 0; }
-}
-.loader-sun-reflect {
-  animation: reflectGrow 2.2s ease-out 1s both;
-  will-change: opacity;
-}
-@keyframes reflectGrow {
-  from { opacity: 0; } to { opacity: 0.18; }
-}
-/* Branding text */
-.loader-brand {
-  position: relative; z-index: 2; text-align: center;
-  animation: brandIn 0.8s cubic-bezier(0.34,1.2,0.64,1) 1.2s both;
-  will-change: transform, opacity;
-}
-@keyframes brandIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+#fantasy-loader.hide { opacity: 0; pointer-events: none; }
 .loader-sun-icon {
-  font-size: 2.8rem; line-height: 1;
-  color: #f5c842;
-  text-shadow: 0 0 30px rgba(245,200,66,0.8), 0 0 60px rgba(245,200,66,0.4);
-  animation: sunSpin 8s linear infinite;
-  display: inline-block;
+  font-size: 2.4rem; color: #f5c842; line-height: 1;
+  text-shadow: 0 0 24px rgba(245,200,66,0.7);
+  animation: loaderSpin 3s linear infinite;
+  will-change: transform;
 }
-@keyframes sunSpin {
+@keyframes loaderSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 .loader-name {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 6vw, 3.2rem);
-  font-weight: 700; color: #fff;
-  letter-spacing: 0.08em;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.5);
-  margin: 6px 0 4px;
+  font-size: 1.6rem; font-weight: 700;
+  color: #fff; letter-spacing: 0.1em;
+  animation: loaderFadeIn 0.4s ease both;
 }
-.loader-tagline {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+@keyframes loaderFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-/* Progress bar */
 .loader-bar-wrap {
-  position: relative; z-index: 2;
-  width: 160px; height: 2px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px; margin-top: 24px; overflow: hidden;
+  width: 120px; height: 2px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px; overflow: hidden;
 }
 .loader-bar {
   height: 100%; width: 0%;
-  background: linear-gradient(90deg, #c9a84c, #f5c842, #e8c97a);
+  background: linear-gradient(90deg, #c9a84c, #f5c842);
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(245,200,66,0.6);
-  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
 }
 .loader-bar.go { width: 100%; }
 
