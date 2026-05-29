@@ -124,8 +124,16 @@ ul { list-style: none; }
   background: #0d1f2d;
 }
 .hero-video {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
+  position: absolute;
+  top: 50%; left: 50%;
+  /* Scale up enough to crop past any letterbox/pillarbox bars baked into the file */
+  width: 177.8vh;   /* 16/9 of viewport height */
+  height: 100vh;
+  min-width: 100%;
+  min-height: 56.25vw; /* 9/16 of viewport width */
+  transform: translate(-50%, -50%) scale(1.06);
+  object-fit: cover;
+  object-position: center center;
   z-index: 0;
 }
 .hero-photo {
@@ -201,21 +209,6 @@ ul { list-style: none; }
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-3px); }
-.hero-scroll {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  z-index: 10; display: flex; flex-direction: column; align-items: center;
-  gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-  animation: heroFadeUp 1s 1.2s both;
-}
-.scroll-line {
-  width: 1px; height: 50px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-  animation: scrollPulse 2s infinite;
-}
-@keyframes scrollPulse {
-  0%,100% { opacity: 0.5; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.3); }
-}
 .hero-badges {
   position: absolute; bottom: 2.5rem; right: 2rem; z-index: 10;
   display: flex; flex-direction: column; gap: 10px;
@@ -364,6 +357,27 @@ ul { list-style: none; }
   z-index: 0;
 }
 .experience .container { position: relative; z-index: 1; }
+/* horizontal scroll strip for experiences */
+.exp-scroll-wrap { position: relative; }
+.exp-scroll {
+  display: flex; gap: 20px; overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 8px;
+}
+.exp-scroll::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+.exp-scroll .exp-card { flex-shrink: 0; width: 280px; scroll-snap-align: start; }
+.exp-scroll-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 0.85rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s; z-index: 2;
+}
+.exp-scroll-btn:hover { background: rgba(255,255,255,0.25); }
+.exp-scroll-left { left: -20px; }
+.exp-scroll-right { right: -20px; }
 .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .exp-card {
   background: rgba(255,255,255,0.06);
@@ -505,6 +519,9 @@ ul { list-style: none; }
 .map-link:hover { color: var(--earth); }
 .map-link i { font-size: 1rem; }
 
+.map-iframe { border: 0; border-radius: 12px; display: block; }
+.footer-tel { color: inherit; }
+
 /* ─── FOOTER ─── */
 .footer { background: var(--green-dark); }
 .footer-top { padding: 70px 0 50px; }
@@ -591,9 +608,9 @@ ul { list-style: none; }
 .gallery-item:hover img { transform: scale(1.07); }
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 260px 260px;
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 10px;
 }
 .gallery-item.g-tall { grid-row: span 2; }
 .gallery-item.g-wide { grid-column: span 2; }
@@ -812,11 +829,6 @@ ul { list-style: none; }
 }
 .other-event-item.visible { opacity: 1; transform: translateY(0); }
 
-/* Hero badge shimmer */
-@keyframes badgeShimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
 .badge {
   background: rgba(255,255,255,0.12);
   transition: background var(--transition), transform var(--transition);
@@ -875,10 +887,10 @@ ul { list-style: none; }
   .form-row { grid-template-columns: 1fr; }
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 180px 180px 180px;
+    grid-auto-rows: 160px;
   }
-  .gallery-item.g-tall, .gallery-item.g-wide { grid-row: auto; grid-column: auto; }
-  .gallery-item img { height: 180px; }
+  .gallery-item.g-tall { grid-row: span 2; }
+  .gallery-item.g-wide { grid-column: span 2; }
   .hero-badges { display: none; }
   .about-img-secondary { display: none; }
   .highlight-item { padding: 24px 30px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }

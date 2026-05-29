@@ -1,0 +1,297 @@
+/* ══════════════════════════════════════
+   SCROLL WALKER STRIP
+   ══════════════════════════════════════ */
+
+/* ── sticky scroll container ── */
+#walker-strip {
+  position: relative;
+  height: 400vh;           /* scroll real estate */
+  z-index: 10;
+}
+
+/* ── scene sticks while you scroll ── */
+.walker-scene {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a1820;
+}
+
+/* ── sky ── */
+.ws-sky {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    #050d14 0%,
+    #0d2035 20%,
+    #1a3a50 45%,
+    #2a5a45 70%,
+    #1e3a28 100%
+  );
+}
+
+/* ── parallax mountain layers ── */
+.ws-layer {
+  position: absolute;
+  bottom: 0; left: -5%; width: 110%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.ws-mountains-far {
+  height: 55%;
+  background: #0f2a18;
+  clip-path: polygon(
+    0% 100%, 0% 50%,
+    4% 35%,  8% 48%, 12% 22%, 16% 38%,
+    20% 15%, 24% 32%, 28% 10%, 32% 26%,
+    36% 18%, 40% 35%, 44% 12%, 48% 28%,
+    52% 8%,  56% 24%, 60% 14%, 64% 30%,
+    68% 18%, 72% 36%, 76% 20%, 80% 38%,
+    84% 16%, 88% 32%, 92% 24%, 96% 40%,
+    100% 28%, 100% 100%
+  );
+}
+/* Snow caps */
+.ws-mountains-far::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.12) 0%,
+    transparent 30%
+  );
+  clip-path: inherit;
+}
+
+.ws-mountains-mid {
+  height: 42%;
+  background: #163320;
+  clip-path: polygon(
+    0% 100%, 0% 55%,
+    5% 38%, 10% 52%, 15% 28%, 20% 45%,
+    25% 22%, 30% 40%, 35% 30%, 40% 48%,
+    45% 20%, 50% 38%, 55% 28%, 60% 44%,
+    65% 25%, 70% 42%, 75% 30%, 80% 48%,
+    85% 35%, 90% 50%, 95% 38%, 100% 55%,
+    100% 100%
+  );
+}
+
+.ws-mountains-near {
+  height: 30%;
+  background: #1e4030;
+  clip-path: polygon(
+    0% 100%, 0% 65%,
+    6% 50%, 12% 62%, 18% 40%, 24% 55%,
+    30% 42%, 36% 58%, 42% 45%, 48% 62%,
+    54% 38%, 60% 55%, 66% 44%, 72% 60%,
+    78% 46%, 84% 62%, 90% 50%, 96% 65%,
+    100% 55%, 100% 100%
+  );
+}
+
+/* ── ground ── */
+.ws-ground {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 22%;
+}
+
+/* dirt path */
+.ws-path {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #2d4830 0%,
+    #3d5a3a 30%,
+    #4a6a45 60%,
+    #3a5535 100%
+  );
+}
+.ws-path::before {
+  content: '';
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: 0; top: 0;
+  width: 60px;
+  background: linear-gradient(
+    180deg,
+    #8b7355 0%,
+    #a08060 50%,
+    #b09070 100%
+  );
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+/* path dashes */
+.ws-path::after {
+  content: '';
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  top: 20%; bottom: 5%;
+  width: 3px;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255,255,255,0.3) 0px,
+    rgba(255,255,255,0.3) 10px,
+    transparent 10px,
+    transparent 22px
+  );
+}
+
+/* ── trees along the path ── */
+.ws-trees {
+  position: absolute;
+  bottom: 100%; left: 0; right: 0;
+  height: 80px;
+  will-change: transform;
+}
+.ws-tree {
+  position: absolute; bottom: 0;
+  transform-origin: bottom center;
+  animation: wsTreeSway 2.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.ws-tree:nth-child(odd)  { animation-direction: alternate-reverse; }
+.ws-tree:nth-child(3n)   { animation-duration: 3.5s; }
+.ws-tree:nth-child(5n)   { animation-duration: 2s; }
+@keyframes wsTreeSway {
+  from { transform: rotate(-1.5deg); }
+  to   { transform: rotate(1.5deg); }
+}
+
+/* ── km markers ── */
+.ws-markers {
+  position: absolute;
+  bottom: 105%; left: 0;
+  width: 500%;         /* wide enough to scroll across */
+  will-change: transform;
+}
+.ws-marker {
+  position: absolute; bottom: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(10px);
+}
+.ws-marker.visible {
+  opacity: 1; transform: translateY(0);
+}
+.wsm-pin {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--gold, #c9a84c);
+  box-shadow: 0 0 12px rgba(201,168,76,0.7);
+  position: relative;
+}
+.wsm-pin::after {
+  content: '';
+  position: absolute; bottom: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 2px; height: 10px;
+  background: var(--gold, #c9a84c);
+}
+.ws-marker span {
+  font-size: 0.68rem; color: rgba(255,255,255,0.75);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  white-space: nowrap;
+  background: rgba(0,0,0,0.35);
+  padding: 2px 8px; border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+/* ── walker ── */
+.ws-walker {
+  position: absolute;
+  bottom: 22%;          /* sits on ground */
+  left: 20%;
+  width: 52px;
+  will-change: transform;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+.ws-walker svg { width: 52px; display: block; }
+
+/* Dust puffs */
+.ws-dust {
+  position: absolute;
+  bottom: 2px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 3px;
+}
+.ws-dust span {
+  display: block; border-radius: 50%;
+  background: rgba(180,160,120,0.5);
+  will-change: transform, opacity;
+}
+.ws-dust span:nth-child(1) { width:6px;  height:6px;  animation: dustPuff 0.55s ease-out infinite 0s; }
+.ws-dust span:nth-child(2) { width:9px;  height:9px;  animation: dustPuff 0.55s ease-out infinite 0.18s; }
+.ws-dust span:nth-child(3) { width:6px;  height:6px;  animation: dustPuff 0.55s ease-out infinite 0.36s; }
+@keyframes dustPuff {
+  0%   { transform: translate(0, 0) scale(1);   opacity: 0.7; }
+  100% { transform: translate(-8px, -12px) scale(2); opacity: 0; }
+}
+
+/* ── HUD overlay ── */
+.ws-hud {
+  position: absolute; top: 1.8rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  z-index: 5; pointer-events: none;
+}
+.ws-km {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; color: rgba(255,255,255,0.85);
+  letter-spacing: 0.08em;
+  background: rgba(0,0,0,0.3);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  padding: 6px 20px; border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.ws-km span { color: var(--gold, #c9a84c); font-weight: 700; }
+
+.ws-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  animation: hintBounce 1.8s ease-in-out infinite;
+  transition: opacity 0.5s;
+}
+.ws-hint.hidden { opacity: 0; }
+.ws-hint span {
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); font-family: 'Lato', sans-serif;
+}
+.ws-hint-arrow {
+  width: 1px; height: 32px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+}
+@keyframes hintBounce {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(6px); }
+}
+
+/* ── time-of-day sky tint (driven by JS class) ── */
+.ws-sky.dawn  { background: linear-gradient(180deg, #1a0d05 0%, #5a2a10 30%, #c8703a 55%, #3a6040 80%, #1e3a28 100%); }
+.ws-sky.day   { background: linear-gradient(180deg, #0d1f35 0%, #1a4060 30%, #2a6080 50%, #2a5a45 75%, #1e3a28 100%); }
+.ws-sky.dusk  { background: linear-gradient(180deg, #0d0d20 0%, #2a1040 30%, #7a2a50 55%, #3a4a35 80%, #1e3a28 100%); }
+.ws-sky.night { background: linear-gradient(180deg, #020408 0%, #050d18 30%, #081520 55%, #0d2018 80%, #0a1812 100%); }
+
+/* ── progress bar at scene bottom ── */
+.ws-progress-bar {
+  position: absolute; bottom: 0; left: 0;
+  height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--earth, #8b5e3c), var(--gold, #c9a84c));
+  transition: width 0.1s linear;
+  will-change: width;
+  z-index: 6;
+}
+
+/* ── responsive ── */
+@media (max-width: 768px) {
+  #walker-strip { height: 300vh; }
+  .ws-walker { width: 38px; }
+  .ws-walker svg { width: 38px; }
+}
+@media (max-width: 480px) {
+  #walker-strip { height: 250vh; }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "kite-scalper",
+  "version": "1.0.0",
+  "description": "Autonomous OTM call scalper for NIFTY/SENSEX on Zerodha Kite",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "auth": "node src/auth.js",
+    "test": "node src/test-connection.js"
+  },
+  "dependencies": {
+    "kiteconnect": "^4.0.1",
+    "dotenv": "^16.4.5",
+    "winston": "^3.13.0",
+    "cron": "^3.1.7"
+  }
+}

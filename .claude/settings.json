@@ -19,7 +19,21 @@
       "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017095555-oo8lqq.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/balcony-mountains.jpg\")",
       "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017057241-2gtmf2.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/birthday-party.jpg\")",
       "Bash(ls -la /c/Users/mohit.mehta/Desktop/suryainn/newimg/ 2>/dev/null || find /c/Users/mohit.mehta/Desktop/ -name \"newimg\" -type d 2>/dev/null || find /c/Users/mohit.mehta/Desktop/suryainn/ -type d 2>/dev/null)",
-      "Read(//c/Users/mohit.mehta/Desktop//**)"
+      "Read(//c/Users/mohit.mehta/Desktop//**)",
+      "Bash(mkdir -p c:/Users/mohit.mehta/Desktop/suryainn/trading/src c:/Users/mohit.mehta/Desktop/suryainn/trading/data c:/Users/mohit.mehta/Desktop/suryainn/trading/logs)",
+      "Bash(git check-ignore *)",
+      "Bash(npm install *)",
+      "Bash(node src/auth.js)",
+      "Bash(node src/auth.js rcjmFRaNG42F7YaU7M5QyogciZaOZXZf)",
+      "Bash(node src/auth.js wZva1JcukjcgsE7cD0b9opGx6Har2yqf)",
+      "Bash(node src/test-connection.js)",
+      "Bash(sed -i 's|<button class=\"rpc-btn rpc-prev\"><i class=\"fas fa-chevron-left\"></i></button>|<button type=\"button\" class=\"rpc-btn rpc-prev\" aria-label=\"Previous photo\"><i class=\"fas fa-chevron-left\"></i></button>|g' /c/Users/mohit.mehta/Desktop/suryainn/index.html)",
+      "Bash(sed -i 's|<button class=\"rpc-btn rpc-next\"><i class=\"fas fa-chevron-right\"></i></button>|<button type=\"button\" class=\"rpc-btn rpc-next\" aria-label=\"Next photo\"><i class=\"fas fa-chevron-right\"></i></button>|g' /c/Users/mohit.mehta/Desktop/suryainn/index.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(ffprobe -v quiet -print_format json -show_streams images/hero-video.mp4)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\mohit.mehta\\Desktop\\suryainn\\trading"
     ]
   }
 }

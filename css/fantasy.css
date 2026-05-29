@@ -1,0 +1,442 @@
+/* ══════════════════════════════════════════════════════════
+   SURYA INN — FANTASY MOUNTAIN ATMOSPHERE
+   Breeze · Leaves · Mist · Fireflies · Parallax · Depth
+   ══════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════
+   SUNRISE LOADER
+   ══════════════════════════════════════ */
+#fantasy-loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #0d1f2d;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+#fantasy-loader.hide {
+  opacity: 0; pointer-events: none; transform: scale(1.04);
+}
+.loader-scene {
+  position: relative; width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding-bottom: 10vh;
+}
+.loader-landscape {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  animation: loaderFadeIn 0.6s ease both;
+}
+@keyframes loaderFadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+/* Sun rises from below horizon */
+.loader-sun {
+  animation: sunRiseAnim 2s cubic-bezier(0.4,0,0.2,1) forwards;
+  will-change: transform;
+  transform-origin: 200px 300px;
+}
+@keyframes sunRiseAnim {
+  from { transform: translateY(80px); opacity: 0.3; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.loader-sun-halo {
+  animation: haloExpand 2.5s ease-out forwards;
+  will-change: opacity, transform;
+  transform-origin: 200px 185px;
+}
+@keyframes haloExpand {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+.loader-sun-rays {
+  animation: raysAppear 2s ease-out 0.8s both;
+  will-change: opacity;
+}
+@keyframes raysAppear {
+  from { opacity: 0; } to { opacity: 0.5; }
+}
+.loader-stars {
+  animation: starsFade 2s ease-out 0.5s both;
+  will-change: opacity;
+}
+@keyframes starsFade {
+  from { opacity: 0.6; } to { opacity: 0; }
+}
+.loader-sun-reflect {
+  animation: reflectGrow 2.2s ease-out 1s both;
+  will-change: opacity;
+}
+@keyframes reflectGrow {
+  from { opacity: 0; } to { opacity: 0.18; }
+}
+/* Branding text */
+.loader-brand {
+  position: relative; z-index: 2; text-align: center;
+  animation: brandIn 0.8s cubic-bezier(0.34,1.2,0.64,1) 1.2s both;
+  will-change: transform, opacity;
+}
+@keyframes brandIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.loader-sun-icon {
+  font-size: 2.8rem; line-height: 1;
+  color: #f5c842;
+  text-shadow: 0 0 30px rgba(245,200,66,0.8), 0 0 60px rgba(245,200,66,0.4);
+  animation: sunSpin 8s linear infinite;
+  display: inline-block;
+}
+@keyframes sunSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.loader-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 700; color: #fff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+  margin: 6px 0 4px;
+}
+.loader-tagline {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+/* Progress bar */
+.loader-bar-wrap {
+  position: relative; z-index: 2;
+  width: 160px; height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px; margin-top: 24px; overflow: hidden;
+}
+.loader-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #c9a84c, #f5c842, #e8c97a);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(245,200,66,0.6);
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+.loader-bar.go { width: 100%; }
+
+/* ══════════════════════════════════════
+   EASTER EGG — type "suryainn"
+   ══════════════════════════════════════ */
+#easter-egg {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; opacity: 0;
+  transition: opacity 0.4s ease;
+}
+#easter-egg.show {
+  opacity: 1; pointer-events: all;
+}
+.ee-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.88);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.ee-box {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  width: clamp(280px, 55vw, 620px);
+  animation: eeSlam 0.45s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes eeSlam {
+  from { transform: scale(0.6) rotate(-4deg); opacity: 0; }
+  to   { transform: scale(1)   rotate(0deg);  opacity: 1; }
+}
+.ee-label {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #ffd700; letter-spacing: 0.06em;
+  text-shadow: 0 0 20px rgba(255,215,0,0.7);
+}
+.ee-box .tenor-gif-embed,
+.ee-box iframe {
+  width: 100% !important; border-radius: 12px;
+  border: 2px solid rgba(255,215,0,0.4);
+  box-shadow: 0 0 40px rgba(255,215,0,0.25), 0 16px 48px rgba(0,0,0,0.8);
+  display: block;
+}
+.ee-close {
+  background: none; border: 1.5px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.55); font-family: 'Lato', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 22px; border-radius: 30px; cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.ee-close:hover { color: #fff; border-color: #fff; }
+
+/* konami hint that briefly flashes at bottom-left */
+#ee-hint {
+  position: fixed; bottom: 1.4rem; left: 1.5rem; z-index: 999;
+  font-family: 'Lato', sans-serif; font-size: 0.62rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,215,0,0); pointer-events: none;
+  transition: color 1.2s ease;
+}
+#ee-hint.peek { color: rgba(255,215,0,0.35); }
+
+
+/* ── CANVAS OVERLAY ── */
+#fantasy-canvas {
+  position: fixed; inset: 0; z-index: 5;
+  pointer-events: none; opacity: 0.85;
+  mix-blend-mode: screen;   /* never darkens — only adds light */
+  background: transparent;
+}
+
+/* ── MIST LAYERS ── */
+.mist-layer {
+  position: absolute; left: -10%; right: -10%;
+  height: 200px; pointer-events: none;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255,255,255,0.06) 20%,
+    rgba(255,255,255,0.10) 50%,
+    rgba(255,255,255,0.06) 80%,
+    transparent 100%
+  );
+  filter: blur(22px);
+  border-radius: 50%;
+  will-change: transform;
+}
+.mist-1 {
+  top: 35%; animation: mistDrift 22s ease-in-out infinite alternate;
+}
+.mist-2 {
+  top: 60%; height: 140px;
+  animation: mistDrift 30s ease-in-out infinite alternate-reverse;
+  opacity: 0.7;
+}
+.mist-3 {
+  top: 18%; height: 120px;
+  animation: mistDrift 18s ease-in-out infinite alternate;
+  opacity: 0.5;
+}
+@keyframes mistDrift {
+  from { transform: translateX(-8%) scaleY(1);   opacity: 0.6; }
+  to   { transform: translateX(8%)  scaleY(1.3); opacity: 1; }
+}
+
+/* ── HERO MIST CONTAINER ── */
+.hero-mist { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+
+/* ── SWAYING PINE TREES ── */
+.pine-row {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 120px; pointer-events: none;
+  display: flex; align-items: flex-end; gap: 0;
+  z-index: 3; overflow: hidden;
+}
+.pine-tree {
+  flex-shrink: 0;
+  width: 0; height: 0;
+  transform-origin: bottom center;
+}
+.pine-tree::before, .pine-tree::after {
+  content: ''; display: block; position: absolute;
+  left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+}
+/* Pine via clip-path polygon on a div */
+.pine-svg { display: block; }
+
+/* ── FLOATING LEAVES ── */
+.leaf-field {
+  position: fixed; inset: 0; z-index: 4;
+  pointer-events: none; overflow: hidden;
+}
+.leaf {
+  position: absolute; top: -40px;
+  width: 12px; height: 16px;
+  border-radius: 50% 0 50% 0;
+  will-change: transform, opacity;
+  animation: leafFall linear infinite;
+  transform-origin: center;
+}
+/* different leaf colours for mountain feel */
+.leaf.l1 { background: #4a7c3f; }
+.leaf.l2 { background: #6aab50; }
+.leaf.l3 { background: #3d6b35; }
+.leaf.l4 { background: #c9a84c; opacity: 0.8; }
+.leaf.l5 { background: #d4884a; opacity: 0.85; }
+.leaf.l6 { background: #8b5e3c; opacity: 0.7; }
+@keyframes leafFall {
+  0%   { transform: translateY(0)    translateX(0)    rotate(0deg)   scale(1);   opacity: 0; }
+  5%   { opacity: 1; }
+  90%  { opacity: 0.8; }
+  100% { transform: translateY(110vh) translateX(var(--leaf-x, 80px)) rotate(var(--leaf-spin, 540deg)) scale(0.6); opacity: 0; }
+}
+
+/* ── FIREFLY CANVAS (experience section) ── */
+#firefly-canvas {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+}
+
+/* ── SECTION MOUNTAIN DIVIDERS ── */
+.mountain-divider {
+  width: 100%; overflow: hidden; line-height: 0;
+  pointer-events: none;
+}
+.mountain-divider svg { display: block; width: 100%; }
+.mountain-divider.flip { transform: rotate(180deg); }
+
+/* ── PARALLAX DEPTH CARDS ── */
+.parallax-card {
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+}
+
+/* ── WIND STREAKS ── */
+.wind-streak {
+  position: absolute; height: 1px; border-radius: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+  pointer-events: none; will-change: transform, opacity;
+  animation: windBlow linear infinite;
+}
+@keyframes windBlow {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateX(120vw); opacity: 0; }
+}
+
+/* ── SECTION ENTRY REVEAL ── */
+.fantasy-reveal {
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+              transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+.fantasy-reveal.revealed {
+  opacity: 1; transform: translateY(0) scale(1);
+}
+
+/* ── HERO ENHANCEMENT ── */
+.hero-particles {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+}
+
+/* Floating orbs on hero */
+.hero-orb {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+  filter: blur(30px);
+  will-change: transform;
+  animation: orbFloat ease-in-out infinite alternate;
+}
+.hero-orb-1 { width: 300px; height: 300px; top: 15%; left: 10%;  animation-duration: 12s; }
+.hero-orb-2 { width: 200px; height: 200px; top: 50%; right: 8%;  animation-duration: 9s; animation-delay: -3s; }
+.hero-orb-3 { width: 250px; height: 250px; top: 70%; left: 40%;  animation-duration: 15s; animation-delay: -6s; opacity: 0.7; }
+@keyframes orbFloat {
+  from { transform: translate(0, 0)    scale(1); }
+  to   { transform: translate(20px, -30px) scale(1.1); }
+}
+
+/* ── SCROLL DEPTH PARALLAX on sections ── */
+.depth-slow  { will-change: transform; }
+.depth-mid   { will-change: transform; }
+.depth-fast  { will-change: transform; }
+
+/* ── ABOUT SECTION BREEZE EFFECT ── */
+.about.section { position: relative; overflow: visible; }
+.about-breeze {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; overflow: hidden; z-index: 0;
+}
+.breeze-line {
+  position: absolute; height: 1.5px; border-radius: 2px;
+  background: linear-gradient(to right, transparent, rgba(74,140,92,0.2), transparent);
+  will-change: transform, opacity;
+  animation: breezeLine linear infinite;
+}
+@keyframes breezeLine {
+  from { transform: translateX(-120%); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 0.7; }
+  100% { transform: translateX(120%);  opacity: 0; }
+}
+
+/* ── SECTION BACKGROUND TEXTURE ── */
+.rooms.section,
+.testimonials.section,
+.gallery.section {
+  position: relative;
+}
+.rooms.section::before,
+.testimonials.section::before,
+.gallery.section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(74,140,92,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── AMBIENT SOUND TOGGLE ── */
+.ambient-btn {
+  position: fixed; bottom: 9rem; right: 2rem; z-index: 999;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(30,58,47,0.85);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7); font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+.ambient-btn:hover { background: rgba(30,58,47,1); color: #fff; transform: scale(1.08); }
+.ambient-btn.playing { color: var(--gold-light); border-color: rgba(201,168,76,0.4); }
+
+/* ── MOUNTAIN SECTION HEADERS — extra depth ── */
+.section-header { position: relative; }
+.section-header::before {
+  content: '';
+  position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: headerLinePulse 3s ease-in-out infinite;
+}
+@keyframes headerLinePulse {
+  0%,100% { opacity: 0.4; width: 30px; }
+  50%     { opacity: 1;   width: 60px; }
+}
+
+/* ── CURSOR GLOW ── */
+.cursor-glow {
+  position: fixed; top: 0; left: 0; z-index: 9998;
+  width: 350px; height: 350px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+@media (hover: none) { .cursor-glow { display: none; } }
+
+/* ── PINE SILHOUETTE ROW ── */
+.pine-silhouette {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 90px; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.pine-silhouette svg {
+  width: 100%; height: 100%;
+}
+
+/* ── DRIFT SECTIONS ── */
+.experience.section { position: relative; }
+#firefly-wrap {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  overflow: hidden;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-orb-1, .hero-orb-2, .hero-orb-3 { display: none; }
+  .loader-title { font-size: clamp(2rem, 10vw, 3.5rem); }
+}

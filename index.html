@@ -10,9 +10,126 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/fantasy.css" />
+  <link rel="stylesheet" href="css/trail.css" />
+  <link rel="stylesheet" href="css/rooms-events.css" />
   <link rel="stylesheet" href="css/itinerary.css" />
 </head>
 <body>
+
+  <!-- ─── LOADER ─── -->
+  <!-- ─── LOADER ─── -->
+  <div id="fantasy-loader">
+    <div class="loader-scene">
+
+      <!-- Animated SVG sunrise landscape -->
+      <svg class="loader-landscape" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#ffe57a" stop-opacity="0.9"/>
+            <stop offset="40%"  stop-color="#f0a030" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#f0a030" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="skyGradL" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#0d1f2d"/>
+            <stop offset="45%"  stop-color="#1a3a50"/>
+            <stop offset="75%"  stop-color="#c87040" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#f0a030" stop-opacity="0.4"/>
+          </linearGradient>
+          <linearGradient id="lakeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#c87040" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#1a3040"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Sky -->
+        <rect width="400" height="300" fill="url(#skyGradL)"/>
+
+        <!-- Stars (fade out as sun rises) -->
+        <g class="loader-stars" opacity="0.6">
+          <circle cx="40"  cy="30"  r="1.2" fill="white"/>
+          <circle cx="120" cy="18"  r="1"   fill="white"/>
+          <circle cx="200" cy="25"  r="1.4" fill="white"/>
+          <circle cx="290" cy="14"  r="1"   fill="white"/>
+          <circle cx="360" cy="28"  r="1.2" fill="white"/>
+          <circle cx="80"  cy="50"  r="1"   fill="white"/>
+          <circle cx="320" cy="45"  r="1"   fill="white"/>
+        </g>
+
+        <!-- Sun glow halo -->
+        <circle cx="200" cy="185" r="70" fill="url(#sunGlow)" class="loader-sun-halo"/>
+
+        <!-- Sun rays -->
+        <g class="loader-sun-rays" transform="translate(200,185)" stroke="#f0c060" stroke-linecap="round" opacity="0.5">
+          <line x1="0" y1="-55" x2="0"   y2="-72" stroke-width="2"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(25)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(50)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(75)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(100)"/>
+          <line x1="0" y1="-55" x2="0"   y2="-72" stroke-width="2"   transform="rotate(125)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(155)"/>
+          <line x1="0" y1="-55" x2="0"   y2="-72" stroke-width="2"   transform="rotate(-25)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(-50)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(-75)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(-100)"/>
+          <line x1="0" y1="-55" x2="0"   y2="-72" stroke-width="2"   transform="rotate(-125)"/>
+          <line x1="0" y1="-55" x2="14"  y2="-68" stroke-width="1.5" transform="rotate(-155)"/>
+        </g>
+
+        <!-- Sun circle rising -->
+        <circle cx="200" class="loader-sun" cy="185" r="30" fill="#f5c842"/>
+
+        <!-- Far mountains -->
+        <path d="M0,200 L40,155 L80,175 L130,130 L180,160 L220,125 L270,155 L310,135 L360,160 L400,145 L400,300 L0,300Z"
+              fill="#1a2e20" opacity="0.9"/>
+        <!-- Snow caps -->
+        <path d="M220,125 L237,148 L203,148Z" fill="white" opacity="0.55"/>
+        <path d="M130,130 L146,150 L114,150Z" fill="white" opacity="0.45"/>
+        <path d="M310,135 L325,155 L295,155Z" fill="white" opacity="0.4"/>
+
+        <!-- Mid mountains -->
+        <path d="M0,230 L60,200 L110,215 L170,190 L230,210 L290,195 L350,215 L400,205 L400,300 L0,300Z"
+              fill="#243d2c"/>
+
+        <!-- Lake (horizon) -->
+        <ellipse cx="200" cy="255" rx="130" ry="22" fill="url(#lakeGrad)" opacity="0.75"/>
+        <!-- Lake shimmer -->
+        <line x1="150" y1="253" x2="190" y2="256" stroke="rgba(255,200,80,0.3)" stroke-width="1.5"/>
+        <line x1="205" y1="258" x2="240" y2="255" stroke="rgba(255,200,80,0.2)" stroke-width="1"/>
+
+        <!-- Sun reflection on lake -->
+        <ellipse cx="200" cy="260" rx="12" ry="28" fill="#f5c842" opacity="0.18" class="loader-sun-reflect"/>
+
+        <!-- Foreground silhouette trees -->
+        <g fill="#0f1e14">
+          <polygon points="18,300  32,255  46,300"/>
+          <polygon points="36,300  52,248  68,300"/>
+          <polygon points="8,300   20,262  32,300"/>
+          <polygon points="336,300 350,255 364,300"/>
+          <polygon points="356,300 372,248 388,300"/>
+          <polygon points="348,300 360,262 372,300"/>
+        </g>
+      </svg>
+
+      <!-- Branding -->
+      <div class="loader-brand">
+        <div class="loader-sun-icon">☀</div>
+        <div class="loader-name">Surya Inn</div>
+        <div class="loader-tagline">Resort &amp; Cottages · Bhimtal, Uttarakhand</div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FANTASY CANVAS (leaves · fireflies · mist) ─── -->
+  <canvas id="fantasy-canvas"></canvas>
+
+  <!-- ─── CURSOR GLOW ─── -->
+  <div class="cursor-glow"></div>
 
   <!-- ─── NAVBAR ─── -->
   <nav id="navbar">
@@ -35,7 +152,7 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="tel:+918630330578" class="btn-nav"><i class="fas fa-phone-alt"></i> Book Now</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button type="button" class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -44,7 +161,7 @@
   <!-- ─── HERO ─── -->
   <section id="home" class="hero">
     <div class="hero-bg">
-      <video class="hero-video" autoplay muted loop playsinline poster="images/valley-sunrise.jpg">
+      <video class="hero-video" autoplay muted loop poster="images/valley-sunrise.jpg">
         <source src="images/hero-video.mp4" type="video/mp4" />
       </video>
       <img src="images/valley-sunrise.jpg" alt="Surya Inn Resort valley view, Bhimtal" class="hero-photo hero-photo-fallback" />
@@ -60,15 +177,10 @@
         <a href="#contact" class="btn-secondary">Book Your Stay</a>
       </div>
     </div>
-    <div class="hero-scroll">
-      <span>Scroll to explore</span>
-      <div class="scroll-line"></div>
-    </div>
-    <div class="hero-badges">
-      <div class="badge"><i class="fas fa-mountain"></i><span>Valley Views</span></div>
-      <div class="badge"><i class="fas fa-water"></i><span>Bhimtal Lake</span></div>
-      <div class="badge"><i class="fas fa-leaf"></i><span>Nature Retreat</span></div>
-    </div>
+    <!-- fantasy orbs -->
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
   </section>
 
   <!-- ─── ABOUT ─── -->
@@ -141,24 +253,76 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-eyebrow">Where You'll Rest</span>
         <h2 class="section-title">Our Rooms & Cottages</h2>
-        <p class="section-desc">Each room is thoughtfully crafted to bring the outside in — natural finishes and windows that frame the valley like a living painting.</p>
+        <p class="section-desc">Four distinct room categories — each with real photos, real views, and genuine Himalayan character.</p>
       </div>
-      <div class="rooms-grid">
 
-        <div class="room-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="room-img">
-            <div class="img-placeholder img-room-valley">
-              <span class="room-badge">Most Popular</span>
+      <!-- Room category tabs -->
+      <div class="room-tabs" data-aos="fade-up">
+        <button type="button" class="room-tab active" data-cat="panoramic"><i class="fas fa-mountain"></i> Panoramic View</button>
+        <button type="button" class="room-tab" data-cat="hill"><i class="fas fa-binoculars"></i> Hill View</button>
+        <button type="button" class="room-tab" data-cat="deluxe"><i class="fas fa-bed"></i> Deluxe Non-Balcony</button>
+        <button type="button" class="room-tab" data-cat="cottage"><i class="fas fa-home"></i> Double Cottage</button>
+      </div>
+
+      <!-- ── Panoramic View Rooms ── -->
+      <div class="room-category active" id="cat-panoramic">
+        <div class="room-category-hero">
+          <div class="room-photo-carousel" id="carousel-panoramic">
+            <div class="rpc-track">
+              <div class="rpc-slide"><img src="images/panaromic view/WhatsApp Image 2026-05-29 at 22.36.53.jpeg" alt="Panoramic view room interior" /></div>
+              <div class="rpc-slide"><img src="images/panaromic view/WhatsApp Image 2026-05-29 at 22.36.53 (1).jpeg" alt="Panoramic room alternate angle" /></div>
+              <div class="rpc-slide"><img src="images/panaromic view/WhatsApp Image 2026-05-29 at 22.36.52 (1).jpeg" alt="Panoramic room balcony view" /></div>
+              <div class="rpc-slide"><img src="images/panaromic view/WhatsApp Image 2026-05-29 at 22.36.52.jpeg" alt="Panoramic room bathroom" /></div>
             </div>
+            <button type="button" class="rpc-btn rpc-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="rpc-btn rpc-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+            <div class="rpc-dots"></div>
           </div>
-          <div class="room-info">
-            <h3>Valley View Room</h3>
-            <p>Wake up to panoramic mountain vistas. Our signature rooms feature a private sit-out, queen bed with hand-woven Kumaoni throws, and an en-suite bath with rain shower.</p>
+          <div class="room-category-info">
+            <span class="room-badge badge-gold">Most Premium</span>
+            <h3>Panoramic View Rooms</h3>
+            <p class="room-tagline">360° Himalayan vistas from every window</p>
+            <p>Our finest rooms — featuring stunning wooden-panelled interiors, artistic wall decor, a private balcony with unobstructed panoramic views of the Kumaon valleys, and a premium marble bathroom. Watch the sunrise paint the mountains gold from your bed.</p>
             <ul class="room-amenities">
               <li><i class="fas fa-wifi"></i> Free WiFi</li>
-              <li><i class="fas fa-snowflake"></i> Heating</li>
-              <li><i class="fas fa-tv"></i> LED TV</li>
+              <li><i class="fas fa-tv"></i> Smart LED TV</li>
+              <li><i class="fas fa-snowflake"></i> AC / Heating</li>
               <li><i class="fas fa-coffee"></i> Tea Kettle</li>
+              <li><i class="fas fa-door-open"></i> Private Balcony</li>
+              <li><i class="fas fa-couch"></i> Sofa Seating</li>
+            </ul>
+            <div class="room-footer">
+              <div class="room-price"><span class="price">₹4,500</span><span class="per">/ night</span></div>
+              <a href="tel:+918630330578" class="btn-room">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Hill View Rooms ── -->
+      <div class="room-category" id="cat-hill">
+        <div class="room-category-hero">
+          <div class="room-photo-carousel" id="carousel-hill">
+            <div class="rpc-track">
+              <div class="rpc-slide"><img src="images/hill view rooms/WhatsApp Image 2026-05-29 at 22.37.04.jpeg" alt="Hill view room with king bed" /></div>
+              <div class="rpc-slide"><img src="images/hill view rooms/WhatsApp Image 2026-05-29 at 22.37.05.jpeg" alt="Hill view room with TV and balcony" /></div>
+            </div>
+            <button type="button" class="rpc-btn rpc-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="rpc-btn rpc-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+            <div class="rpc-dots"></div>
+          </div>
+          <div class="room-category-info">
+            <span class="room-badge">Popular Choice</span>
+            <h3>Hill View Rooms</h3>
+            <p class="room-tagline">Lush hillside views, marble luxury</p>
+            <p>Spacious rooms with gleaming white marble floors, large curtained windows overlooking the hill slopes, a plush king bed, wall-mounted LED TV, and a luxurious black marble en-suite bathroom. The balcony terrace is the perfect spot for morning chai.</p>
+            <ul class="room-amenities">
+              <li><i class="fas fa-wifi"></i> Free WiFi</li>
+              <li><i class="fas fa-tv"></i> LED TV</li>
+              <li><i class="fas fa-snowflake"></i> AC / Heating</li>
+              <li><i class="fas fa-bath"></i> Premium Bathroom</li>
+              <li><i class="fas fa-door-open"></i> Sit-out Balcony</li>
+              <li><i class="fas fa-couch"></i> Sofa Chair</li>
             </ul>
             <div class="room-footer">
               <div class="room-price"><span class="price">₹3,500</span><span class="per">/ night</span></div>
@@ -166,50 +330,76 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="room-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="room-img">
-            <div class="img-placeholder img-room-lake"></div>
+      <!-- ── Deluxe Non-Balcony ── -->
+      <div class="room-category" id="cat-deluxe">
+        <div class="room-category-hero">
+          <div class="room-photo-carousel" id="carousel-deluxe">
+            <div class="rpc-track">
+              <div class="rpc-slide"><img src="images/deluxe non balcony rooms/WhatsApp Image 2026-05-29 at 22.37.14.jpeg" alt="Deluxe non-balcony room" /></div>
+              <div class="rpc-slide"><img src="images/deluxe non balcony rooms/WhatsApp Image 2026-05-29 at 22.37.14 (1).jpeg" alt="Deluxe room alternate view" /></div>
+              <div class="rpc-slide"><img src="images/deluxe non balcony rooms/WhatsApp Image 2026-05-29 at 22.37.15.jpeg" alt="Deluxe room with TV" /></div>
+              <div class="rpc-slide"><img src="images/deluxe non balcony rooms/WhatsApp Image 2026-05-29 at 22.37.15 (1).jpeg" alt="Deluxe room sofa" /></div>
+            </div>
+            <button type="button" class="rpc-btn rpc-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="rpc-btn rpc-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+            <div class="rpc-dots"></div>
           </div>
-          <div class="room-info">
-            <h3>Lake View Deluxe</h3>
-            <p>Positioned to perfectly frame the glittering Bhimtal Lake. A larger space with a king bed, sitting area, hand-painted wooden ceiling, and a spa-inspired bathroom.</p>
+          <div class="room-category-info">
+            <span class="room-badge">Great Value</span>
+            <h3>Deluxe Non-Balcony Rooms</h3>
+            <p class="room-tagline">Clean, bright comfort at the best price</p>
+            <p>Bright, well-lit deluxe rooms with polished marble floors, a king or double bed, comfortable sofa seating, and large windows that fill the space with natural mountain light. Perfect for couples or solo travellers who want quality without compromise.</p>
             <ul class="room-amenities">
               <li><i class="fas fa-wifi"></i> Free WiFi</li>
-              <li><i class="fas fa-bath"></i> Bathtub</li>
-              <li><i class="fas fa-fire"></i> Bonfire Access</li>
-              <li><i class="fas fa-concierge-bell"></i> Butler</li>
+              <li><i class="fas fa-tv"></i> LED TV</li>
+              <li><i class="fas fa-snowflake"></i> AC / Heating</li>
+              <li><i class="fas fa-coffee"></i> Tea Kettle</li>
+              <li><i class="fas fa-couch"></i> Sofa Seating</li>
+              <li><i class="fas fa-shower"></i> En-suite Bath</li>
             </ul>
             <div class="room-footer">
-              <div class="room-price"><span class="price">₹5,500</span><span class="per">/ night</span></div>
+              <div class="room-price"><span class="price">₹2,500</span><span class="per">/ night</span></div>
               <a href="tel:+918630330578" class="btn-room">Book Now</a>
             </div>
           </div>
         </div>
-
-        <div class="room-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="room-img">
-            <div class="img-placeholder img-room-suite">
-              <span class="room-badge badge-gold">Signature Suite</span>
-            </div>
-          </div>
-          <div class="room-info">
-            <h3>Mountain Suite</h3>
-            <p>Our most spacious offering — a standalone suite with a private garden sit-out, dual valley and lake views, fireplace, premium Kumaoni decor, and dedicated butler service.</p>
-            <ul class="room-amenities">
-              <li><i class="fas fa-fire"></i> Fireplace</li>
-              <li><i class="fas fa-hot-tub"></i> Jacuzzi</li>
-              <li><i class="fas fa-utensils"></i> In-room Dining</li>
-              <li><i class="fas fa-car"></i> Pickup</li>
-            </ul>
-            <div class="room-footer">
-              <div class="room-price"><span class="price">₹8,500</span><span class="per">/ night</span></div>
-              <a href="tel:+918630330578" class="btn-room">Book Now</a>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- ── Double Occupancy Cottage ── -->
+      <div class="room-category" id="cat-cottage">
+        <div class="room-category-hero">
+          <div class="room-photo-carousel" id="carousel-cottage">
+            <div class="rpc-track">
+              <div class="rpc-slide"><img src="images/double occupancy cottage/WhatsApp Image 2026-05-29 at 22.37.26 (1).jpeg" alt="Double occupancy cottage interior" /></div>
+              <div class="rpc-slide"><img src="images/double occupancy cottage/WhatsApp Image 2026-05-29 at 22.37.26 (2).jpeg" alt="Cottage with wooden ceiling" /></div>
+            </div>
+            <button type="button" class="rpc-btn rpc-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="rpc-btn rpc-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+            <div class="rpc-dots"></div>
+          </div>
+          <div class="room-category-info">
+            <span class="room-badge badge-earth">Rustic Charm</span>
+            <h3>Double Occupancy Cottage</h3>
+            <p class="room-tagline">Warm wood, warm light, mountain soul</p>
+            <p>Our charming standalone cottages with beautiful wooden ceilings, warm glowing LED strip lighting, natural wood-plank flooring, and a cozy double bed. The cottage feel brings you closest to the mountains — intimate, warm, and utterly peaceful.</p>
+            <ul class="room-amenities">
+              <li><i class="fas fa-wifi"></i> Free WiFi</li>
+              <li><i class="fas fa-fan"></i> Ceiling Fan</li>
+              <li><i class="fas fa-tree"></i> Forest Setting</li>
+              <li><i class="fas fa-moon"></i> Stargazing Access</li>
+              <li><i class="fas fa-fire-alt"></i> Bonfire Nearby</li>
+              <li><i class="fas fa-shower"></i> Attached Bath</li>
+            </ul>
+            <div class="room-footer">
+              <div class="room-price"><span class="price">₹3,000</span><span class="per">/ night</span></div>
+              <a href="tel:+918630330578" class="btn-room">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -219,87 +409,162 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-eyebrow">Celebrate With Us</span>
         <h2 class="section-title">Weddings & <em>Special Events</em></h2>
-        <p class="section-desc">Surya Inn Resort is the perfect Himalayan backdrop for your most precious moments. From intimate mountain weddings to grand birthday bashes — we make every celebration unforgettable.</p>
+        <p class="section-desc">Surya Inn Resort transforms into a breathtaking celebration venue. Real events, real decor — see what we've created for our guests.</p>
       </div>
 
-      <div class="events-grid">
-        <!-- Wedding -->
-        <div class="event-card event-wedding" data-aos="fade-up" data-aos-delay="0">
-          <div class="event-img">
-            <img src="images/wedding-decor.jpg" alt="Wedding decor at Surya Inn with floral arch and blue lighting" />
-            <div class="event-img-overlay"></div>
-            <span class="event-tag"><i class="fas fa-heart"></i> Weddings</span>
+      <!-- Event type tabs -->
+      <div class="event-tabs" data-aos="fade-up">
+        <button type="button" class="event-tab active" data-evcat="wedding"><i class="fas fa-heart"></i> Weddings</button>
+        <button type="button" class="event-tab" data-evcat="birthday"><i class="fas fa-birthday-cake"></i> Birthdays</button>
+        <button type="button" class="event-tab" data-evcat="venue"><i class="fas fa-building"></i> Venue & Banquet</button>
+      </div>
+
+      <!-- ── WEDDING ── -->
+      <div class="event-category active" id="evcat-wedding">
+        <div class="event-split">
+          <!-- Left: masonry photo wall -->
+          <div class="event-masonry" data-aos="fade-right">
+            <div class="em-item em-tall">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.13 (1).jpeg" alt="Wedding fairy light canopy and floral arch" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.14.jpeg" alt="Wedding aisle with mirror floor and flower decor" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.14 (1).jpeg" alt="Wedding venue full view" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item em-wide">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.15 (2).jpeg" alt="Wedding stage with floral arch and sofa" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.16 (1).jpeg" alt="Flower entrance gate with chandelier" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.15 (1).jpeg" alt="Wedding display board at entrance" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
           </div>
-          <div class="event-info">
-            <h3>Dream Mountain Wedding</h3>
-            <p>Exchange vows with the Himalayas as your witness. Our lush valley grounds transform into a magical wedding venue — adorned with marigolds, fairy lights, and the crisp mountain air as your backdrop.</p>
+          <!-- Right: info -->
+          <div class="event-info-panel" data-aos="fade-left">
+            <div class="event-info-badge"><i class="fas fa-heart"></i> Dream Weddings</div>
+            <h3>Your Mountain Wedding Story</h3>
+            <p>Exchange vows beneath a canopy of fairy lights with the Himalayas as your eternal witness. Our outdoor and indoor venues transform into magical settings — floral arches, mirror aisles, star-lit mandaps, and a banquet hall that seats your entire family.</p>
             <ul class="event-features">
-              <li><i class="fas fa-check"></i> Customised floral decoration</li>
-              <li><i class="fas fa-check"></i> Outdoor & indoor venue options</li>
-              <li><i class="fas fa-check"></i> Catering with Kumaoni & North Indian cuisine</li>
-              <li><i class="fas fa-check"></i> Photography-friendly locations</li>
-              <li><i class="fas fa-check"></i> Accommodation for guests & family</li>
-              <li><i class="fas fa-check"></i> DJ, sound system & lighting setup</li>
+              <li><i class="fas fa-check"></i> Fairy light canopy & floral arch setup</li>
+              <li><i class="fas fa-check"></i> Mirror aisle with botanical decor</li>
+              <li><i class="fas fa-check"></i> Outdoor DJ floor with stage lighting</li>
+              <li><i class="fas fa-check"></i> Full catering — Kumaoni & North Indian cuisine</li>
+              <li><i class="fas fa-check"></i> Decorated entrance gate with chandelier</li>
+              <li><i class="fas fa-check"></i> Guest accommodation on-property</li>
+              <li><i class="fas fa-check"></i> Photography-friendly mountain backdrops</li>
             </ul>
-            <a href="tel:+919897032551" class="btn-event">
-              <i class="fas fa-phone-alt"></i> Plan Your Wedding
-            </a>
+            <div class="event-cta-group">
+              <a href="tel:+919897032551" class="btn-event"><i class="fas fa-phone-alt"></i> Plan Your Wedding</a>
+              <a href="https://wa.me/919897032551" target="_blank" rel="noopener" class="btn-event btn-event-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Birthday -->
-        <div class="event-card event-birthday" data-aos="fade-up" data-aos-delay="150">
-          <div class="event-img">
-            <img src="images/birthday-party.jpg" alt="Birthday party celebration at Surya Inn resort" />
-            <div class="event-img-overlay"></div>
-            <span class="event-tag event-tag-yellow"><i class="fas fa-birthday-cake"></i> Birthdays</span>
+      <!-- ── BIRTHDAY ── -->
+      <div class="event-category" id="evcat-birthday">
+        <div class="event-split">
+          <div class="event-masonry" data-aos="fade-right">
+            <div class="em-item em-tall">
+              <img src="images/birthday-party.jpg" alt="Birthday celebration with balloon arch" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.13.jpeg" alt="Outdoor DJ floor and stage setup" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.13 (2).jpeg" alt="Decorated chairs under fairy lights" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item em-wide">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.15.jpeg" alt="Evening event outdoor setup" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.15 (3).jpeg" alt="Night event garden view" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
           </div>
-          <div class="event-info">
-            <h3>Birthday Celebrations</h3>
-            <p>Surprise your loved one with a birthday they'll never forget — set against the breathtaking Kumaon valleys. From balloon arches to themed setups, we handle every detail so you just enjoy the moment.</p>
+          <div class="event-info-panel" data-aos="fade-left">
+            <div class="event-info-badge event-info-badge-yellow"><i class="fas fa-birthday-cake"></i> Celebrations</div>
+            <h3>Birthdays in the Mountains</h3>
+            <p>Imagine your loved one's face as they walk into a mountain celebration designed entirely for them — balloon arches, a lit outdoor dance floor, DJ under the stars, and a cake against a backdrop of rolling Himalayan valleys.</p>
             <ul class="event-features">
-              <li><i class="fas fa-check"></i> Balloon & theme decoration</li>
-              <li><i class="fas fa-check"></i> Custom birthday cakes</li>
-              <li><i class="fas fa-check"></i> Bonfire & musical night</li>
+              <li><i class="fas fa-check"></i> Personalised balloon & theme decoration</li>
+              <li><i class="fas fa-check"></i> Outdoor DJ floor with coloured stage lights</li>
+              <li><i class="fas fa-check"></i> Custom birthday cake & welcome drinks</li>
+              <li><i class="fas fa-check"></i> Bonfire & musical night under the stars</li>
+              <li><i class="fas fa-check"></i> Group stay packages for friends & family</li>
               <li><i class="fas fa-check"></i> Special room decoration for the birthday person</li>
-              <li><i class="fas fa-check"></i> Group stay packages available</li>
               <li><i class="fas fa-check"></i> Photography & videography support</li>
             </ul>
-            <a href="tel:+918630330578" class="btn-event btn-event-alt">
-              <i class="fas fa-phone-alt"></i> Plan Your Celebration
-            </a>
+            <div class="event-cta-group">
+              <a href="tel:+918630330578" class="btn-event btn-event-alt"><i class="fas fa-phone-alt"></i> Plan Your Celebration</a>
+              <a href="https://wa.me/918630330578" target="_blank" rel="noopener" class="btn-event btn-event-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Other events strip -->
+      <!-- ── VENUE & BANQUET ── -->
+      <div class="event-category" id="evcat-venue">
+        <div class="event-split">
+          <div class="event-masonry" data-aos="fade-right">
+            <div class="em-item em-tall">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.16.jpeg" alt="Banquet hall with guests and buffet" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.14 (2).jpeg" alt="Buffet spread in banquet hall" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="em-item em-wide">
+              <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.16 (1).jpeg" alt="Flower gate entrance to venue" />
+              <div class="em-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+          </div>
+          <div class="event-info-panel" data-aos="fade-left">
+            <div class="event-info-badge event-info-badge-green"><i class="fas fa-building"></i> Venue & Banquet</div>
+            <h3>A Venue Like No Other</h3>
+            <p>Our spacious banquet hall and open-air terrace venue can accommodate large gatherings with full catering, seating arrangements, and mountain views as the backdrop. Whether it's a reception, corporate dinner, or family function — we deliver.</p>
+            <ul class="event-features">
+              <li><i class="fas fa-check"></i> Large air-conditioned banquet hall</li>
+              <li><i class="fas fa-check"></i> Outdoor open-air terrace venue</li>
+              <li><i class="fas fa-check"></i> Full buffet catering service</li>
+              <li><i class="fas fa-check"></i> Seating for 50–200+ guests</li>
+              <li><i class="fas fa-check"></i> PA system, projector & lighting</li>
+              <li><i class="fas fa-check"></i> Valet & parking available</li>
+              <li><i class="fas fa-check"></i> On-site accommodation for out-of-town guests</li>
+            </ul>
+            <div class="event-cta-group">
+              <a href="tel:+919897032551" class="btn-event"><i class="fas fa-phone-alt"></i> Book the Venue</a>
+              <a href="https://wa.me/919897032551" target="_blank" rel="noopener" class="btn-event btn-event-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Also perfect for -->
       <div class="other-events" data-aos="fade-up">
         <h3>Also Perfect For</h3>
         <div class="other-events-grid">
-          <div class="other-event-item">
-            <i class="fas fa-ring"></i>
-            <span>Engagement Ceremonies</span>
-          </div>
-          <div class="other-event-item">
-            <i class="fas fa-users"></i>
-            <span>Corporate Retreats</span>
-          </div>
-          <div class="other-event-item">
-            <i class="fas fa-graduation-cap"></i>
-            <span>Farewell Parties</span>
-          </div>
-          <div class="other-event-item">
-            <i class="fas fa-glass-cheers"></i>
-            <span>Anniversary Dinners</span>
-          </div>
-          <div class="other-event-item">
-            <i class="fas fa-baby"></i>
-            <span>Baby Showers</span>
-          </div>
-          <div class="other-event-item">
-            <i class="fas fa-star"></i>
-            <span>New Year Parties</span>
-          </div>
+          <div class="other-event-item"><i class="fas fa-ring"></i><span>Engagement Ceremonies</span></div>
+          <div class="other-event-item"><i class="fas fa-users"></i><span>Corporate Retreats</span></div>
+          <div class="other-event-item"><i class="fas fa-graduation-cap"></i><span>Farewell Parties</span></div>
+          <div class="other-event-item"><i class="fas fa-glass-cheers"></i><span>Anniversary Dinners</span></div>
+          <div class="other-event-item"><i class="fas fa-baby"></i><span>Baby Showers</span></div>
+          <div class="other-event-item"><i class="fas fa-star"></i><span>New Year Parties</span></div>
         </div>
         <div class="events-cta-banner">
           <div class="events-cta-text">
@@ -667,37 +932,42 @@
         <h2 class="section-title">Experiences at Surya Inn</h2>
         <p class="section-desc">Bhimtal is nature's gift — and we make sure you experience every inch of it.</p>
       </div>
-      <div class="exp-grid">
-        <div class="exp-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="exp-icon"><i class="fas fa-water"></i></div>
-          <h3>Bhimtal Lake Boating</h3>
-          <p>Glide across the serene waters of Bhimtal Lake, one of the most beautiful high-altitude lakes in Uttarakhand. Visit the iconic island aquarium in the middle of the lake.</p>
+      <!-- Horizontal scroll strip — no full 3-row grid -->
+      <div class="exp-scroll-wrap" data-aos="fade-up">
+        <div class="exp-scroll">
+          <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-water"></i></div>
+            <h3>Bhimtal Lake Boating</h3>
+            <p>Glide across Bhimtal Lake and visit the iconic island aquarium in the middle of the water.</p>
+          </div>
+          <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-hiking"></i></div>
+            <h3>Forest Trails & Treks</h3>
+            <p>Explore ancient oak and rhododendron forests on guided trails for all fitness levels.</p>
+          </div>
+          <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-camera"></i></div>
+            <h3>Sunrise Photography</h3>
+            <p>Golden light over pine-covered ridges from our rooftop terrace — every morning, no filter needed.</p>
+          </div>
+          <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-fire-alt"></i></div>
+            <h3>Evening Bonfire</h3>
+            <p>Gather under the stars, sip kahwa, and let the mountain night wrap around you.</p>
+          </div>
+          <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-music"></i></div>
+            <h3>Musical Nights</h3>
+            <p>Folk Kumaoni tunes or DJ nights — the mountains set the perfect stage.</p>
+          </div>
+          <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-binoculars"></i></div>
+            <h3>Bird Watching</h3>
+            <p>200+ species including Himalayan Bulbul and Koklass Pheasant — a birder's paradise.</p>
+          </div>
         </div>
-        <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="exp-icon"><i class="fas fa-hiking"></i></div>
-          <h3>Forest Trails & Treks</h3>
-          <p>Explore ancient oak and rhododendron forests on guided trails. Routes for all fitness levels — from gentle morning walks to demanding ridge hikes with Himalayan panoramas.</p>
-        </div>
-        <div class="exp-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="exp-icon"><i class="fas fa-camera"></i></div>
-          <h3>Sunrise Photography</h3>
-          <p>Our rooftop terrace offers some of the finest sunrise vantage points in Kumaon. Golden light spilling over pine-covered ridges — a photographer's paradise every morning.</p>
-        </div>
-        <div class="exp-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="exp-icon"><i class="fas fa-fire-alt"></i></div>
-          <h3>Evening Bonfire</h3>
-          <p>As the Himalayan night settles in, gather around our bonfire under a canopy of stars. Sip kahwa, share stories, and feel the warmth beneath a sky undimmed by city lights.</p>
-        </div>
-        <div class="exp-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="exp-icon"><i class="fas fa-music"></i></div>
-          <h3>Musical Nights</h3>
-          <p>Enjoy live music sessions under the open Himalayan sky. Whether it's folk Kumaoni tunes or DJ nights, the mountains set the perfect stage for an unforgettable evening.</p>
-        </div>
-        <div class="exp-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="exp-icon"><i class="fas fa-binoculars"></i></div>
-          <h3>Bird Watching</h3>
-          <p>Bhimtal is a birder's haven. With over 200 species including the Himalayan Bulbul, Verditer Flycatcher, and the elusive Koklass Pheasant — every walk is a discovery.</p>
-        </div>
+        <button type="button" class="exp-scroll-btn exp-scroll-left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" class="exp-scroll-btn exp-scroll-right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </section>
@@ -710,29 +980,54 @@
         <h2 class="section-title">Life at Surya Inn</h2>
         <p class="section-desc">Real moments, real views — straight from our Instagram <a href="https://www.instagram.com/thesuryainn/" target="_blank" rel="noopener" class="insta-link"><i class="fab fa-instagram"></i> @thesuryainn</a></p>
       </div>
+      <!-- Compact 4-col gallery: all real photos in one tight grid -->
       <div class="gallery-grid" data-aos="fade-up">
         <div class="gallery-item g-tall">
-          <img src="images/valley-sunrise.jpg" alt="Panoramic valley and mountain view at golden hour from Surya Inn" />
+          <img src="images/valley-sunrise.jpg" alt="Golden hour panoramic valley view" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item">
-          <img src="images/misty-valley.jpg" alt="Misty fog rolling over the Bhimtal valley and winding highway" />
+          <img src="images/misty-valley.jpg" alt="Misty Bhimtal valley morning" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item">
-          <img src="images/heart-view.jpg" alt="Romantic heart bench with misty valley morning view" />
+          <img src="images/panaromic view/WhatsApp Image 2026-05-29 at 22.36.53.jpeg" alt="Panoramic room interior" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/panaromic view/WhatsApp Image 2026-05-29 at 22.36.52 (1).jpeg" alt="Panoramic room balcony" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/hill view rooms/WhatsApp Image 2026-05-29 at 22.37.04.jpeg" alt="Hill view room" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item g-wide">
-          <img src="images/hero-exterior.jpg" alt="Surya Inn Resort exterior illuminated at night" />
+          <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.13 (1).jpeg" alt="Wedding fairy light canopy" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item">
-          <img src="images/birthday-party.jpg" alt="Birthday party celebration at Surya Inn" />
+          <img src="images/heart-view.jpg" alt="Romantic heart bench view" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item g-tall">
-          <img src="images/wedding-decor.jpg" alt="Wedding decoration with floral arch at Surya Inn" />
+          <img src="images/hero-exterior.jpg" alt="Surya Inn at night" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/WhatsApp Unknown 2026-05-30 at 00.07.17/WhatsApp Image 2026-05-29 at 22.40.16 (1).jpeg" alt="Wedding flower entrance gate" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/double occupancy cottage/WhatsApp Image 2026-05-29 at 22.37.26 (1).jpeg" alt="Double cottage interior" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/terrace-view.jpg" alt="Rooftop terrace valley view" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/birthday-party.jpg" alt="Birthday celebration" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
       </div>
@@ -874,8 +1169,8 @@
           <div class="map-container">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878.8!2d79.5429672!3d29.3139321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a099c6ad14d9f5%3A0xf6608781ca7e3582!2sThe%20Surya%20Inn(Mid-Valley%20Stay)!5e0!3m2!1sen!2sin!4v1700000000000"
-              width="100%" height="260" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" title="Surya Inn location on Google Maps">
+              width="100%" height="260" class="map-iframe" allowfullscreen="" loading="lazy"
+              title="Surya Inn location on Google Maps">
             </iframe>
             <a href="https://maps.app.goo.gl/ew24woKizMKS2aKJ7" target="_blank" rel="noopener" class="map-link">
               <i class="fas fa-directions"></i> Get Directions on Google Maps
@@ -931,9 +1226,9 @@
         <div class="footer-contact">
           <h4>Contact</h4>
           <p><i class="fas fa-map-marker-alt"></i> Kwerali Village, Bhimtal, Uttarakhand</p>
-          <p><i class="fas fa-phone-alt"></i> <a href="tel:+918630330578" style="color:inherit">+91 86303 30578</a></p>
-          <p><i class="fas fa-phone-alt"></i> <a href="tel:+919761597305" style="color:inherit">+91 97615 97305</a></p>
-          <p><i class="fas fa-phone-alt"></i> <a href="tel:+919897032551" style="color:inherit">+91 98970 32551</a></p>
+          <p><i class="fas fa-phone-alt"></i> <a href="tel:+918630330578" class="footer-tel">+91 86303 30578</a></p>
+          <p><i class="fas fa-phone-alt"></i> <a href="tel:+919761597305" class="footer-tel">+91 97615 97305</a></p>
+          <p><i class="fas fa-phone-alt"></i> <a href="tel:+919897032551" class="footer-tel">+91 98970 32551</a></p>
         </div>
       </div>
     </div>
@@ -946,7 +1241,7 @@
   </footer>
 
   <!-- Back to top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <button type="button" id="backToTop" class="back-to-top" aria-label="Back to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
@@ -956,11 +1251,31 @@
   </a>
 
   <!-- Form success toast -->
+  <!-- ─── EASTER EGG — type "heisenberg" anywhere ─── -->
+  <div id="easter-egg">
+    <div class="ee-backdrop"></div>
+    <div class="ee-box">
+      <div class="ee-label">🧪 You're goddamn right.</div>
+      <div class="tenor-gif-embed"
+           data-postid="21661584"
+           data-share-method="host"
+           data-aspect-ratio="1.77778"
+           data-width="100%">
+        <a href="https://tenor.com/view/high-five-walter-white-jesse-pinkman-breaking-bad-4k-gif-21661584">High Five Walter White GIF</a>
+      </div>
+      <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      <button type="button" id="ee-close" class="ee-close">✕ back to the mountains</button>
+    </div>
+  </div>
+
   <div id="toast" class="toast">
     <i class="fas fa-check-circle"></i> Message sent! We'll get back to you within 24 hours.
   </div>
 
+  <script src="js/rooms-events.js"></script>
   <script src="js/main.js"></script>
   <script src="js/itinerary.js"></script>
+  <script src="js/fantasy.js"></script>
+  <script src="js/trail.js"></script>
 </body>
 </html>
