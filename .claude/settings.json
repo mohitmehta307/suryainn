@@ -17,7 +17,9 @@
       "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017089803-2itdkq.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/terrace-view.jpg\")",
       "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017059510-2rgv18.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/heart-view.jpg\")",
       "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017095555-oo8lqq.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/balcony-mountains.jpg\")",
-      "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017057241-2gtmf2.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/birthday-party.jpg\")"
+      "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017057241-2gtmf2.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/birthday-party.jpg\")",
+      "Bash(ls -la /c/Users/mohit.mehta/Desktop/suryainn/newimg/ 2>/dev/null || find /c/Users/mohit.mehta/Desktop/ -name \"newimg\" -type d 2>/dev/null || find /c/Users/mohit.mehta/Desktop/suryainn/ -type d 2>/dev/null)",
+      "Read(//c/Users/mohit.mehta/Desktop//**)"
     ]
   }
 }

@@ -123,6 +123,11 @@ ul { list-style: none; }
   position: absolute; inset: 0;
   background: #0d1f2d;
 }
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  z-index: 0;
+}
 .hero-photo {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center;
@@ -130,6 +135,9 @@ ul { list-style: none; }
   will-change: transform;
   animation: heroZoom 14s ease-in-out infinite alternate;
 }
+/* Hide fallback photo when video can play */
+.hero-photo-fallback { z-index: -1; animation: none; transform: none; }
+.hero-video ~ .hero-photo-fallback { display: none; }
 @keyframes heroZoom {
   from { transform: scale(1.08); }
   to   { transform: scale(1.0); }
@@ -214,7 +222,7 @@ ul { list-style: none; }
   animation: heroFadeUp 1s 1.4s both;
 }
 .badge {
-  background: rgba(255,255,255,0.12); backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.12); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 30px; padding: 8px 16px;
   display: flex; align-items: center; gap: 8px;
@@ -361,7 +369,7 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius); padding: 32px 28px;
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   transition: background var(--transition), transform var(--transition), border-color var(--transition);
 }
 .exp-card:hover {
@@ -594,7 +602,7 @@ ul { list-style: none; }
   background: rgba(30,58,47,0.45);
   display: flex; align-items: center; justify-content: center;
   opacity: 0; transition: opacity var(--transition); color: #fff; font-size: 1.5rem;
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
 }
 .gallery-item:hover .gallery-hover { opacity: 1; }
 .insta-link {

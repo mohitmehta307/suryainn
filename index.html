@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/itinerary.css" />
 </head>
 <body>
 
@@ -28,6 +29,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#rooms">Rooms</a></li>
         <li><a href="#events">Events</a></li>
+        <li><a href="#itinerary">Itinerary</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -42,7 +44,10 @@
   <!-- ─── HERO ─── -->
   <section id="home" class="hero">
     <div class="hero-bg">
-      <img src="images/hero-exterior.jpg" alt="Surya Inn Resort exterior at night, Bhimtal" class="hero-photo" />
+      <video class="hero-video" autoplay muted loop playsinline poster="images/valley-sunrise.jpg">
+        <source src="images/hero-video.mp4" type="video/mp4" />
+      </video>
+      <img src="images/valley-sunrise.jpg" alt="Surya Inn Resort valley view, Bhimtal" class="hero-photo hero-photo-fallback" />
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
@@ -72,10 +77,10 @@
       <div class="about-grid">
         <div class="about-visual" data-aos="fade-right">
           <div class="about-img-main">
-            <img src="images/terrace-view.jpg" alt="Surya Inn rooftop terrace with panoramic valley view" />
+            <img src="images/valley-sunrise.jpg" alt="Panoramic valley and mountain view from Surya Inn at golden hour" />
           </div>
           <div class="about-img-secondary">
-            <img src="images/heart-view.jpg" alt="Romantic heart bench with misty valley view at Surya Inn" />
+            <img src="images/misty-valley.jpg" alt="Misty fog rolling over the Bhimtal valley viewed from Surya Inn" />
           </div>
           <div class="about-stat-card">
             <span class="stat-number">1500m</span>
@@ -310,6 +315,349 @@
     </div>
   </section>
 
+  <!-- ─── ITINERARY ─── -->
+  <section id="itinerary" class="itinerary-section">
+
+    <!-- Parallax mountain background layers -->
+    <div class="itin-mountains">
+      <div class="itin-sky"></div>
+      <div class="itin-cloud itin-cloud-1"></div>
+      <div class="itin-cloud itin-cloud-2"></div>
+      <div class="itin-cloud itin-cloud-3"></div>
+      <div class="itin-range itin-range-far"></div>
+      <div class="itin-range itin-range-mid"></div>
+      <div class="itin-range itin-range-near"></div>
+      <div class="itin-trees"></div>
+    </div>
+
+    <!-- Animated jeep/car that drives across -->
+    <div class="itin-road-wrap">
+      <div class="itin-road">
+        <div class="road-dashes"></div>
+      </div>
+      <div class="itin-car" id="itinCar">
+        <!-- SVG car/jeep -->
+        <svg viewBox="0 0 120 52" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="carBody" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2d5a3d"/>
+              <stop offset="100%" stop-color="#1e3a2f"/>
+            </linearGradient>
+          </defs>
+          <!-- Body -->
+          <rect x="10" y="22" width="100" height="22" rx="4" fill="url(#carBody)"/>
+          <!-- Cabin -->
+          <path d="M28 22 L36 8 L80 8 L92 22Z" fill="#2d5a3d"/>
+          <!-- Windows -->
+          <rect x="40" y="11" width="16" height="9" rx="2" fill="#a8d8ea" opacity="0.8"/>
+          <rect x="60" y="11" width="16" height="9" rx="2" fill="#a8d8ea" opacity="0.8"/>
+          <!-- Wheels -->
+          <circle cx="32" cy="44" r="8" fill="#1a1a1a"/>
+          <circle cx="32" cy="44" r="4" fill="#555"/>
+          <circle cx="88" cy="44" r="8" fill="#1a1a1a"/>
+          <circle cx="88" cy="44" r="4" fill="#555"/>
+          <!-- Headlight -->
+          <ellipse cx="110" cy="31" rx="4" ry="3" fill="#f0e68c" opacity="0.9"/>
+          <!-- Roof rack -->
+          <rect x="36" y="6" width="44" height="3" rx="1" fill="#c9a84c"/>
+          <!-- Luggage on rack -->
+          <rect x="42" y="2" width="14" height="5" rx="1" fill="#8b5e3c"/>
+          <rect x="60" y="2" width="12" height="5" rx="1" fill="#6b4020"/>
+        </svg>
+        <!-- Exhaust puff -->
+        <div class="car-exhaust">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="itin-content">
+      <div class="section-header light">
+        <span class="section-eyebrow">Explore the Kumaon</span>
+        <h2 class="section-title">Your Journey Awaits</h2>
+        <p class="section-desc itin-desc">All these stunning destinations are within 30 km of Surya Inn — the perfect base for your Kumaon adventure.</p>
+      </div>
+
+      <!-- Journey path with stops -->
+      <div class="journey-path" id="journeyPath">
+
+        <!-- Stop 0: Surya Inn (start) -->
+        <div class="journey-stop stop-start" data-index="0">
+          <div class="stop-pin">
+            <div class="pin-pulse"></div>
+            <div class="pin-dot"><i class="fas fa-home"></i></div>
+          </div>
+          <div class="stop-connector">
+            <div class="connector-line"><div class="connector-progress"></div></div>
+            <div class="connector-distance"><i class="fas fa-road"></i> 2 km</div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-card-header">
+              <span class="stop-number">Start</span>
+              <span class="stop-time"><i class="fas fa-sun"></i> Morning</span>
+            </div>
+            <div class="stop-scene stop-scene-surya">
+              <div class="scene-elements">
+                <div class="scene-building"></div>
+                <div class="scene-tree scene-tree-1"></div>
+                <div class="scene-tree scene-tree-2"></div>
+                <div class="scene-sun"></div>
+              </div>
+            </div>
+            <h3>Surya Inn Resort</h3>
+            <p class="stop-location"><i class="fas fa-map-marker-alt"></i> Kwerali Village, Bhimtal</p>
+            <p class="stop-desc">Begin your day with a warm Kumaoni breakfast and chai on our terrace as the valley wakes up in golden light.</p>
+            <div class="stop-tags">
+              <span><i class="fas fa-coffee"></i> Breakfast</span>
+              <span><i class="fas fa-camera"></i> Sunrise View</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stop 1: Bhimtal Lake -->
+        <div class="journey-stop" data-index="1">
+          <div class="stop-pin">
+            <div class="pin-pulse"></div>
+            <div class="pin-dot"><i class="fas fa-water"></i></div>
+          </div>
+          <div class="stop-connector">
+            <div class="connector-line"><div class="connector-progress"></div></div>
+            <div class="connector-distance"><i class="fas fa-road"></i> 8 km</div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-card-header">
+              <span class="stop-number">Stop 01</span>
+              <span class="stop-time"><i class="fas fa-clock"></i> 9:00 AM</span>
+            </div>
+            <div class="stop-scene stop-scene-bhimtal">
+              <div class="scene-elements">
+                <div class="scene-lake"></div>
+                <div class="scene-island"></div>
+                <div class="scene-boat"></div>
+                <div class="scene-mountain scene-mountain-l"></div>
+                <div class="scene-mountain scene-mountain-r"></div>
+                <div class="scene-ripple"></div>
+              </div>
+            </div>
+            <h3>Bhimtal Lake</h3>
+            <p class="stop-location"><i class="fas fa-map-marker-alt"></i> Bhimtal · 2 km from resort</p>
+            <p class="stop-desc">Glide across the serene Bhimtal Lake on a boat. Visit the iconic aquarium on the island in the middle of the lake — unique in all of Uttarakhand.</p>
+            <div class="stop-tags">
+              <span><i class="fas fa-ship"></i> Boating</span>
+              <span><i class="fas fa-fish"></i> Island Aquarium</span>
+              <span><i class="fas fa-camera"></i> Photography</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stop 2: Naukuchiatal -->
+        <div class="journey-stop" data-index="2">
+          <div class="stop-pin">
+            <div class="pin-pulse"></div>
+            <div class="pin-dot"><i class="fas fa-leaf"></i></div>
+          </div>
+          <div class="stop-connector">
+            <div class="connector-line"><div class="connector-progress"></div></div>
+            <div class="connector-distance"><i class="fas fa-road"></i> 12 km</div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-card-header">
+              <span class="stop-number">Stop 02</span>
+              <span class="stop-time"><i class="fas fa-clock"></i> 11:00 AM</span>
+            </div>
+            <div class="stop-scene stop-scene-nauk">
+              <div class="scene-elements">
+                <div class="scene-lake"></div>
+                <div class="scene-mountain scene-mountain-l"></div>
+                <div class="scene-mountain scene-mountain-r"></div>
+                <div class="scene-mountain scene-mountain-c"></div>
+                <div class="scene-forest-l"></div>
+                <div class="scene-forest-r"></div>
+                <div class="scene-bird scene-bird-1"></div>
+                <div class="scene-bird scene-bird-2"></div>
+              </div>
+            </div>
+            <h3>Naukuchiatal</h3>
+            <p class="stop-location"><i class="fas fa-map-marker-alt"></i> Nine-Corner Lake · 12 km</p>
+            <p class="stop-desc">The deepest lake in Kumaon with nine corners — encircled by lush forests and mountains. Perfect for paragliding, zip-lining, and bird watching.</p>
+            <div class="stop-tags">
+              <span><i class="fas fa-feather"></i> Paragliding</span>
+              <span><i class="fas fa-binoculars"></i> Bird Watching</span>
+              <span><i class="fas fa-ship"></i> Boating</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stop 3: Nainital Lake -->
+        <div class="journey-stop" data-index="3">
+          <div class="stop-pin">
+            <div class="pin-pulse"></div>
+            <div class="pin-dot"><i class="fas fa-umbrella-beach"></i></div>
+          </div>
+          <div class="stop-connector">
+            <div class="connector-line"><div class="connector-progress"></div></div>
+            <div class="connector-distance"><i class="fas fa-road"></i> 25 km</div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-card-header">
+              <span class="stop-number">Stop 03</span>
+              <span class="stop-time"><i class="fas fa-clock"></i> 1:00 PM</span>
+            </div>
+            <div class="stop-scene stop-scene-nainital">
+              <div class="scene-elements">
+                <div class="scene-lake"></div>
+                <div class="scene-mountain scene-mountain-l"></div>
+                <div class="scene-mountain scene-mountain-r"></div>
+                <div class="scene-mall-road"></div>
+                <div class="scene-boat"></div>
+                <div class="scene-boat scene-boat-2"></div>
+                <div class="scene-light scene-light-1"></div>
+                <div class="scene-light scene-light-2"></div>
+              </div>
+            </div>
+            <h3>Nainital Lake</h3>
+            <p class="stop-location"><i class="fas fa-map-marker-alt"></i> Nainital · 25 km from resort</p>
+            <p class="stop-desc">The crown jewel of Kumaon — the beautiful Naini Lake framed by seven hills. Enjoy a leisurely boat ride, explore the Mall Road, and savour local cuisine.</p>
+            <div class="stop-tags">
+              <span><i class="fas fa-ship"></i> Yachting</span>
+              <span><i class="fas fa-shopping-bag"></i> Mall Road</span>
+              <span><i class="fas fa-utensils"></i> Lunch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stop 4: Neem Karoli Baba Mandir -->
+        <div class="journey-stop" data-index="4">
+          <div class="stop-pin">
+            <div class="pin-pulse"></div>
+            <div class="pin-dot"><i class="fas fa-om"></i></div>
+          </div>
+          <div class="stop-connector">
+            <div class="connector-line"><div class="connector-progress"></div></div>
+            <div class="connector-distance"><i class="fas fa-road"></i> 18 km</div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-card-header">
+              <span class="stop-number">Stop 04</span>
+              <span class="stop-time"><i class="fas fa-clock"></i> 3:30 PM</span>
+            </div>
+            <div class="stop-scene stop-scene-temple">
+              <div class="scene-elements">
+                <div class="scene-temple-base"></div>
+                <div class="scene-temple-spire"></div>
+                <div class="scene-temple-flag"></div>
+                <div class="scene-temple-steps"></div>
+                <div class="scene-diya scene-diya-1"></div>
+                <div class="scene-diya scene-diya-2"></div>
+                <div class="scene-diya scene-diya-3"></div>
+                <div class="scene-tree scene-tree-1"></div>
+                <div class="scene-tree scene-tree-2"></div>
+                <div class="scene-petal scene-petal-1"></div>
+                <div class="scene-petal scene-petal-2"></div>
+                <div class="scene-petal scene-petal-3"></div>
+              </div>
+            </div>
+            <h3>Neem Karoli Baba Mandir</h3>
+            <p class="stop-location"><i class="fas fa-map-marker-alt"></i> Kainchi Dham · 18 km</p>
+            <p class="stop-desc">The sacred Kainchi Dham ashram of revered saint Neem Karoli Baba — a deeply spiritual place known across the world. Find peace, offer prayers, and soak in the divine mountain aura.</p>
+            <div class="stop-tags">
+              <span><i class="fas fa-pray"></i> Darshan</span>
+              <span><i class="fas fa-spa"></i> Meditation</span>
+              <span><i class="fas fa-star-and-crescent"></i> Blessings</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stop 5: Sattal -->
+        <div class="journey-stop" data-index="5">
+          <div class="stop-pin">
+            <div class="pin-pulse"></div>
+            <div class="pin-dot"><i class="fas fa-feather-alt"></i></div>
+          </div>
+          <div class="stop-connector">
+            <div class="connector-line"><div class="connector-progress"></div></div>
+            <div class="connector-distance"><i class="fas fa-road"></i> 5 km</div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-card-header">
+              <span class="stop-number">Stop 05</span>
+              <span class="stop-time"><i class="fas fa-clock"></i> 5:00 PM</span>
+            </div>
+            <div class="stop-scene stop-scene-sattal">
+              <div class="scene-elements">
+                <div class="scene-lake"></div>
+                <div class="scene-mountain scene-mountain-l"></div>
+                <div class="scene-mountain scene-mountain-r"></div>
+                <div class="scene-forest-l"></div>
+                <div class="scene-forest-r"></div>
+                <div class="scene-bird scene-bird-1"></div>
+                <div class="scene-bird scene-bird-2"></div>
+                <div class="scene-bird scene-bird-3"></div>
+                <div class="scene-sunset-glow"></div>
+              </div>
+            </div>
+            <h3>Sattal — Seven Lakes</h3>
+            <p class="stop-location"><i class="fas fa-map-marker-alt"></i> Sattal · 23 km from resort</p>
+            <p class="stop-desc">A cluster of seven interconnected freshwater lakes set in an untouched oak-rhododendron forest. Witness a spectacular sunset over the water and watch hundreds of migratory birds come home to roost.</p>
+            <div class="stop-tags">
+              <span><i class="fas fa-binoculars"></i> Bird Watching</span>
+              <span><i class="fas fa-sun"></i> Sunset</span>
+              <span><i class="fas fa-kayak"></i> Kayaking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stop End: Back to Surya Inn -->
+        <div class="journey-stop stop-end" data-index="6">
+          <div class="stop-pin">
+            <div class="pin-pulse"></div>
+            <div class="pin-dot"><i class="fas fa-fire-alt"></i></div>
+          </div>
+          <div class="stop-card">
+            <div class="stop-card-header">
+              <span class="stop-number">Evening</span>
+              <span class="stop-time"><i class="fas fa-moon"></i> Nightfall</span>
+            </div>
+            <div class="stop-scene stop-scene-bonfire">
+              <div class="scene-elements">
+                <div class="scene-night-sky"></div>
+                <div class="scene-star s1"></div><div class="scene-star s2"></div>
+                <div class="scene-star s3"></div><div class="scene-star s4"></div>
+                <div class="scene-star s5"></div><div class="scene-star s6"></div>
+                <div class="scene-bonfire-base"></div>
+                <div class="scene-flame f1"></div>
+                <div class="scene-flame f2"></div>
+                <div class="scene-flame f3"></div>
+                <div class="scene-ember e1"></div>
+                <div class="scene-ember e2"></div>
+                <div class="scene-ember e3"></div>
+              </div>
+            </div>
+            <h3>Back at Surya Inn</h3>
+            <p class="stop-location"><i class="fas fa-map-marker-alt"></i> Kwerali Village, Bhimtal</p>
+            <p class="stop-desc">Return to your mountain home. Unwind around a crackling bonfire under a sky ablaze with stars. Sip on hot kahwa and relive the day's adventures.</p>
+            <div class="stop-tags">
+              <span><i class="fas fa-fire-alt"></i> Bonfire</span>
+              <span><i class="fas fa-star"></i> Stargazing</span>
+              <span><i class="fas fa-mug-hot"></i> Kahwa</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /journey-path -->
+    </div><!-- /itin-content -->
+
+    <!-- Distance summary bar -->
+    <div class="itin-summary">
+      <div class="itin-summary-inner">
+        <div class="summary-item"><i class="fas fa-route"></i><strong>~90 km</strong><span>Total Distance</span></div>
+        <div class="summary-item"><i class="fas fa-clock"></i><strong>1 Day</strong><span>Full Itinerary</span></div>
+        <div class="summary-item"><i class="fas fa-map-marker-alt"></i><strong>6 Stops</strong><span>Must-See Places</span></div>
+        <div class="summary-item"><i class="fas fa-car"></i><strong>Easy Drive</strong><span>Well-Connected Roads</span></div>
+      </div>
+    </div>
+
+  </section>
   <!-- ─── EXPERIENCE / ACTIVITIES ─── -->
   <section id="experience" class="experience section">
     <div class="exp-bg"></div>
@@ -364,11 +712,11 @@
       </div>
       <div class="gallery-grid" data-aos="fade-up">
         <div class="gallery-item g-tall">
-          <img src="images/hero-exterior.jpg" alt="Surya Inn Resort exterior illuminated at night" />
+          <img src="images/valley-sunrise.jpg" alt="Panoramic valley and mountain view at golden hour from Surya Inn" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item">
-          <img src="images/terrace-view.jpg" alt="Rooftop terrace with panoramic Himalayan valley view" />
+          <img src="images/misty-valley.jpg" alt="Misty fog rolling over the Bhimtal valley and winding highway" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item">
@@ -376,7 +724,7 @@
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item g-wide">
-          <img src="images/balcony-mountains.jpg" alt="Mountain balcony view at Surya Inn" />
+          <img src="images/hero-exterior.jpg" alt="Surya Inn Resort exterior illuminated at night" />
           <div class="gallery-hover"><i class="fas fa-expand"></i></div>
         </div>
         <div class="gallery-item">
@@ -613,5 +961,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/itinerary.js"></script>
 </body>
 </html>
