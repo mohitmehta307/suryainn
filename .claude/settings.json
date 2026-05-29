@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.cleartrip.com)",
+      "WebFetch(domain:dynamic-media-cdn.tripadvisor.com)",
+      "WebFetch(domain:www.oyorooms.com)",
+      "WebFetch(domain:maps.googleapis.com)",
+      "WebFetch(domain:www.tripadvisor.com)",
+      "WebFetch(domain:www.expedia.co.in)",
+      "WebFetch(domain:maps.app.goo.gl)",
+      "WebFetch(domain:www.instagram.com)",
+      "WebFetch(domain:www.picuki.com)",
+      "WebFetch(domain:www.tikvib.com)",
+      "WebFetch(domain:imginn.com)",
+      "WebFetch(domain:s10.imginn.com)",
+      "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017057311-4ee5mu.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/hero-exterior.jpg\")",
+      "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017089803-2itdkq.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/terrace-view.jpg\")",
+      "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017059510-2rgv18.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/heart-view.jpg\")",
+      "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017095555-oo8lqq.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/balcony-mountains.jpg\")",
+      "Bash(cp \"C:/Users/mohit.mehta/.claude/projects/c--Users-mohit-mehta-Desktop-suryainn/f22ae622-6984-4822-bf95-b8839f8d66d7/tool-results/webfetch-1780017057241-2gtmf2.jpg\" \"/c/Users/mohit.mehta/Desktop/suryainn/images/birthday-party.jpg\")"
+    ]
+  }
+}

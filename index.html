@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Surya Inn — Mid-Valley Stay, Bhimtal</title>
-  <meta name="description" content="Surya Inn is a serene mountain and lakeside retreat nestled in the lush valleys of Bhimtal, Uttarakhand. Experience nature, tranquility, and warm hospitality." />
+  <meta name="description" content="Surya Inn Resort & Cottages — A serene mountain retreat in Bhimtal, Uttarakhand. Book rooms, plan weddings, birthday parties & events with stunning valley views." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,17 +20,18 @@
         <span class="logo-icon">☀</span>
         <div class="logo-text">
           <span class="logo-main">Surya Inn</span>
-          <span class="logo-sub">Mid-Valley Stay · Bhimtal</span>
+          <span class="logo-sub">Resort & Cottages · Bhimtal</span>
         </div>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact" class="btn-nav">Book Now</a></li>
+        <li><a href="tel:+918630330578" class="btn-nav"><i class="fas fa-phone-alt"></i> Book Now</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -41,87 +42,13 @@
   <!-- ─── HERO ─── -->
   <section id="home" class="hero">
     <div class="hero-bg">
+      <img src="images/hero-exterior.jpg" alt="Surya Inn Resort exterior at night, Bhimtal" class="hero-photo" />
       <div class="hero-overlay"></div>
-      <div class="hero-shapes">
-        <div class="mountain mountain-1"></div>
-        <div class="mountain mountain-2"></div>
-        <div class="mountain mountain-3"></div>
-        <div class="lake-reflection"></div>
-      </div>
-      <!-- Animated SVG landscape -->
-      <svg class="hero-svg" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-        <!-- Sky gradient defined -->
-        <defs>
-          <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#1a2a3a;stop-opacity:1" />
-            <stop offset="40%" style="stop-color:#2d4a6b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#4a7c8e;stop-opacity:1" />
-          </linearGradient>
-          <linearGradient id="mountainGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#1e3a2f;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#2d5a3d;stop-opacity:1" />
-          </linearGradient>
-          <linearGradient id="mountainGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#2a4a38;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#3d6b4f;stop-opacity:1" />
-          </linearGradient>
-          <linearGradient id="lakeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#3a6b7a;stop-opacity:0.9" />
-            <stop offset="100%" style="stop-color:#1e4a5a;stop-opacity:1" />
-          </linearGradient>
-          <filter id="blur">
-            <feGaussianBlur stdDeviation="3"/>
-          </filter>
-        </defs>
-        <!-- Sky -->
-        <rect width="1440" height="600" fill="url(#skyGrad)" />
-        <!-- Stars -->
-        <g class="stars" opacity="0.7">
-          <circle cx="120" cy="50" r="1.5" fill="white" /><circle cx="350" cy="30" r="1" fill="white" />
-          <circle cx="580" cy="70" r="2" fill="white" /><circle cx="800" cy="20" r="1.5" fill="white" />
-          <circle cx="1050" cy="55" r="1" fill="white" /><circle cx="1280" cy="35" r="2" fill="white" />
-          <circle cx="200" cy="90" r="1" fill="white" /><circle cx="450" cy="45" r="1.5" fill="white" />
-          <circle cx="700" cy="15" r="1" fill="white" /><circle cx="950" cy="80" r="2" fill="white" />
-          <circle cx="1150" cy="25" r="1.5" fill="white" /><circle cx="1380" cy="65" r="1" fill="white" />
-        </g>
-        <!-- Moon -->
-        <circle cx="1280" cy="80" r="35" fill="#f0e6a0" opacity="0.9" />
-        <circle cx="1265" cy="72" r="32" fill="#2d4a6b" opacity="0.8" />
-        <!-- Far mountains (snow cap) -->
-        <path d="M0 320 L120 180 L200 230 L320 120 L440 200 L560 150 L680 210 L800 130 L920 195 L1040 155 L1160 210 L1280 140 L1400 200 L1440 185 L1440 600 L0 600Z" fill="#1e3a2f" opacity="0.85"/>
-        <!-- Snow caps -->
-        <path d="M320 120 L360 155 L280 158Z" fill="white" opacity="0.7"/>
-        <path d="M800 130 L840 162 L760 165Z" fill="white" opacity="0.6"/>
-        <path d="M1280 140 L1315 170 L1245 173Z" fill="white" opacity="0.65"/>
-        <path d="M560 150 L590 178 L530 180Z" fill="white" opacity="0.5"/>
-        <!-- Mid mountains -->
-        <path d="M0 380 L180 260 L320 310 L500 230 L660 290 L820 240 L980 295 L1140 255 L1300 300 L1440 270 L1440 600 L0 600Z" fill="url(#mountainGrad1)" />
-        <!-- Foreground hills -->
-        <path d="M0 450 L200 360 L400 400 L600 350 L800 390 L1000 355 L1200 395 L1440 370 L1440 600 L0 600Z" fill="url(#mountainGrad2)" />
-        <!-- Lake -->
-        <ellipse cx="720" cy="540" rx="520" ry="80" fill="url(#lakeGrad)" opacity="0.85" />
-        <!-- Lake shimmer lines -->
-        <line x1="500" y1="530" x2="600" y2="535" stroke="white" stroke-width="1" opacity="0.3"/>
-        <line x1="650" y1="540" x2="780" y2="543" stroke="white" stroke-width="1.5" opacity="0.25"/>
-        <line x1="820" y1="535" x2="920" y2="538" stroke="white" stroke-width="1" opacity="0.2"/>
-        <!-- Moon reflection -->
-        <ellipse cx="720" cy="550" rx="8" ry="25" fill="#f0e6a0" opacity="0.25" />
-        <!-- Foreground trees left -->
-        <g fill="#1a2e1f">
-          <polygon points="60,520 90,430 120,520" /><polygon points="110,530 145,425 180,530" />
-          <polygon points="20,535 55,445 90,535" /><polygon points="160,525 190,440 220,525" />
-        </g>
-        <!-- Foreground trees right -->
-        <g fill="#1a2e1f">
-          <polygon points="1280,520 1310,430 1340,520" /><polygon points="1320,530 1355,425 1390,530" />
-          <polygon points="1240,535 1275,445 1310,535" /><polygon points="1360,525 1390,440 1420,525" />
-        </g>
-      </svg>
     </div>
     <div class="hero-content">
       <p class="hero-eyebrow">Welcome to</p>
       <h1 class="hero-title">Surya Inn</h1>
-      <p class="hero-subtitle">Mid-Valley Stay · Bhimtal, Uttarakhand</p>
+      <p class="hero-subtitle">Resort & Cottages · Bhimtal, Uttarakhand</p>
       <p class="hero-tagline">Where mountains meet the lake,<br>and every sunrise tells a story</p>
       <div class="hero-cta">
         <a href="#rooms" class="btn-primary">Explore Rooms</a>
@@ -132,7 +59,6 @@
       <span>Scroll to explore</span>
       <div class="scroll-line"></div>
     </div>
-    <!-- Floating badges -->
     <div class="hero-badges">
       <div class="badge"><i class="fas fa-mountain"></i><span>Valley Views</span></div>
       <div class="badge"><i class="fas fa-water"></i><span>Bhimtal Lake</span></div>
@@ -146,20 +72,10 @@
       <div class="about-grid">
         <div class="about-visual" data-aos="fade-right">
           <div class="about-img-main">
-            <div class="img-placeholder img-forest">
-              <div class="img-overlay-text">
-                <i class="fas fa-mountain"></i>
-                <span>Bhimtal Valley</span>
-              </div>
-            </div>
+            <img src="images/terrace-view.jpg" alt="Surya Inn rooftop terrace with panoramic valley view" />
           </div>
           <div class="about-img-secondary">
-            <div class="img-placeholder img-lake">
-              <div class="img-overlay-text">
-                <i class="fas fa-water"></i>
-                <span>Bhimtal Lake</span>
-              </div>
-            </div>
+            <img src="images/heart-view.jpg" alt="Romantic heart bench with misty valley view at Surya Inn" />
           </div>
           <div class="about-stat-card">
             <span class="stat-number">1500m</span>
@@ -170,19 +86,19 @@
           <span class="section-eyebrow">Our Story</span>
           <h2 class="section-title">A Sanctuary <em>Cradled</em><br>by the Himalayas</h2>
           <p class="about-lead">Nestled in the gentle folds of the Kumaon Himalayas, Surya Inn is more than a place to stay — it's a place to breathe, to reconnect, and to remember what silence sounds like.</p>
-          <p class="about-body">Perched above the shimmering Bhimtal Lake at an altitude of 1,500 metres, our mid-valley retreat offers an intimate escape from the noise of the plains. Wake to the soft call of Himalayan birds, sip your morning tea as mist rolls off the pine-draped ridges, and let the rhythm of mountain life restore you.</p>
+          <p class="about-body">Perched above the shimmering Bhimtal Lake at 1,500 metres on the Bhimtal–Haldwani Highway, our mid-valley retreat offers an intimate escape from the noise of the plains. Wake to the soft call of Himalayan birds, sip morning chai as mist rolls off pine-draped ridges, and let the rhythm of mountain life restore you.</p>
           <div class="about-features">
             <div class="feature-item">
               <i class="fas fa-sun"></i>
-              <div><strong>Breathtaking Sunrises</strong><p>Watch the sun crest the eastern peaks from your private balcony</p></div>
+              <div><strong>Breathtaking Sunrise Views</strong><p>Watch the sun crest the eastern peaks from our rooftop terrace</p></div>
             </div>
             <div class="feature-item">
               <i class="fas fa-tree"></i>
-              <div><strong>Old-Growth Forest</strong><p>Surrounded by oak, rhododendron and Himalayan pine</p></div>
+              <div><strong>Himalayan Forest Setting</strong><p>Surrounded by oak, rhododendron and Himalayan pine</p></div>
             </div>
             <div class="feature-item">
-              <i class="fas fa-utensils"></i>
-              <div><strong>Home-Style Kumaoni Cuisine</strong><p>Fresh local produce, traditional recipes, made with love</p></div>
+              <i class="fas fa-glass-cheers"></i>
+              <div><strong>Events & Celebrations</strong><p>Weddings, birthdays & special occasions with mountain magic</p></div>
             </div>
           </div>
         </div>
@@ -194,7 +110,7 @@
   <section class="highlights">
     <div class="highlight-item">
       <i class="fas fa-bed"></i>
-      <span class="h-num">12</span>
+      <span class="h-num">12+</span>
       <span class="h-label">Cozy Rooms</span>
     </div>
     <div class="highlight-item">
@@ -219,8 +135,8 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <span class="section-eyebrow">Where You'll Rest</span>
-        <h2 class="section-title">Our Rooms & Suites</h2>
-        <p class="section-desc">Each room is thoughtfully crafted to bring the outside in — natural wood, stone finishes, and windows that frame the valley like a living painting.</p>
+        <h2 class="section-title">Our Rooms & Cottages</h2>
+        <p class="section-desc">Each room is thoughtfully crafted to bring the outside in — natural finishes and windows that frame the valley like a living painting.</p>
       </div>
       <div class="rooms-grid">
 
@@ -241,15 +157,14 @@
             </ul>
             <div class="room-footer">
               <div class="room-price"><span class="price">₹3,500</span><span class="per">/ night</span></div>
-              <a href="#contact" class="btn-room">Book Now</a>
+              <a href="tel:+918630330578" class="btn-room">Book Now</a>
             </div>
           </div>
         </div>
 
         <div class="room-card" data-aos="fade-up" data-aos-delay="100">
           <div class="room-img">
-            <div class="img-placeholder img-room-lake">
-            </div>
+            <div class="img-placeholder img-room-lake"></div>
           </div>
           <div class="room-info">
             <h3>Lake View Deluxe</h3>
@@ -262,7 +177,7 @@
             </ul>
             <div class="room-footer">
               <div class="room-price"><span class="price">₹5,500</span><span class="per">/ night</span></div>
-              <a href="#contact" class="btn-room">Book Now</a>
+              <a href="tel:+918630330578" class="btn-room">Book Now</a>
             </div>
           </div>
         </div>
@@ -284,11 +199,113 @@
             </ul>
             <div class="room-footer">
               <div class="room-price"><span class="price">₹8,500</span><span class="per">/ night</span></div>
-              <a href="#contact" class="btn-room">Book Now</a>
+              <a href="tel:+918630330578" class="btn-room">Book Now</a>
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EVENTS ─── -->
+  <section id="events" class="events section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Celebrate With Us</span>
+        <h2 class="section-title">Weddings & <em>Special Events</em></h2>
+        <p class="section-desc">Surya Inn Resort is the perfect Himalayan backdrop for your most precious moments. From intimate mountain weddings to grand birthday bashes — we make every celebration unforgettable.</p>
+      </div>
+
+      <div class="events-grid">
+        <!-- Wedding -->
+        <div class="event-card event-wedding" data-aos="fade-up" data-aos-delay="0">
+          <div class="event-img">
+            <img src="images/wedding-decor.jpg" alt="Wedding decor at Surya Inn with floral arch and blue lighting" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag"><i class="fas fa-heart"></i> Weddings</span>
+          </div>
+          <div class="event-info">
+            <h3>Dream Mountain Wedding</h3>
+            <p>Exchange vows with the Himalayas as your witness. Our lush valley grounds transform into a magical wedding venue — adorned with marigolds, fairy lights, and the crisp mountain air as your backdrop.</p>
+            <ul class="event-features">
+              <li><i class="fas fa-check"></i> Customised floral decoration</li>
+              <li><i class="fas fa-check"></i> Outdoor & indoor venue options</li>
+              <li><i class="fas fa-check"></i> Catering with Kumaoni & North Indian cuisine</li>
+              <li><i class="fas fa-check"></i> Photography-friendly locations</li>
+              <li><i class="fas fa-check"></i> Accommodation for guests & family</li>
+              <li><i class="fas fa-check"></i> DJ, sound system & lighting setup</li>
+            </ul>
+            <a href="tel:+919897032551" class="btn-event">
+              <i class="fas fa-phone-alt"></i> Plan Your Wedding
+            </a>
+          </div>
+        </div>
+
+        <!-- Birthday -->
+        <div class="event-card event-birthday" data-aos="fade-up" data-aos-delay="150">
+          <div class="event-img">
+            <img src="images/birthday-party.jpg" alt="Birthday party celebration at Surya Inn resort" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag event-tag-yellow"><i class="fas fa-birthday-cake"></i> Birthdays</span>
+          </div>
+          <div class="event-info">
+            <h3>Birthday Celebrations</h3>
+            <p>Surprise your loved one with a birthday they'll never forget — set against the breathtaking Kumaon valleys. From balloon arches to themed setups, we handle every detail so you just enjoy the moment.</p>
+            <ul class="event-features">
+              <li><i class="fas fa-check"></i> Balloon & theme decoration</li>
+              <li><i class="fas fa-check"></i> Custom birthday cakes</li>
+              <li><i class="fas fa-check"></i> Bonfire & musical night</li>
+              <li><i class="fas fa-check"></i> Special room decoration for the birthday person</li>
+              <li><i class="fas fa-check"></i> Group stay packages available</li>
+              <li><i class="fas fa-check"></i> Photography & videography support</li>
+            </ul>
+            <a href="tel:+918630330578" class="btn-event btn-event-alt">
+              <i class="fas fa-phone-alt"></i> Plan Your Celebration
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other events strip -->
+      <div class="other-events" data-aos="fade-up">
+        <h3>Also Perfect For</h3>
+        <div class="other-events-grid">
+          <div class="other-event-item">
+            <i class="fas fa-ring"></i>
+            <span>Engagement Ceremonies</span>
+          </div>
+          <div class="other-event-item">
+            <i class="fas fa-users"></i>
+            <span>Corporate Retreats</span>
+          </div>
+          <div class="other-event-item">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Farewell Parties</span>
+          </div>
+          <div class="other-event-item">
+            <i class="fas fa-glass-cheers"></i>
+            <span>Anniversary Dinners</span>
+          </div>
+          <div class="other-event-item">
+            <i class="fas fa-baby"></i>
+            <span>Baby Showers</span>
+          </div>
+          <div class="other-event-item">
+            <i class="fas fa-star"></i>
+            <span>New Year Parties</span>
+          </div>
+        </div>
+        <div class="events-cta-banner">
+          <div class="events-cta-text">
+            <strong>Book a perfect location for your special moment!</strong>
+            <p>Call us to discuss your requirements and get a custom quote.</p>
+          </div>
+          <div class="events-cta-contacts">
+            <a href="tel:+918630330578" class="btn-primary"><i class="fas fa-phone-alt"></i> 86303 30578</a>
+            <a href="tel:+919897032551" class="btn-secondary-dark"><i class="fas fa-phone-alt"></i> 98970 32551</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -316,7 +333,7 @@
         <div class="exp-card" data-aos="fade-up" data-aos-delay="200">
           <div class="exp-icon"><i class="fas fa-camera"></i></div>
           <h3>Sunrise Photography</h3>
-          <p>Our property offers some of the finest sunrise vantage points in Kumaon. Golden light spilling over pine-covered ridges — a photographer's paradise every single morning.</p>
+          <p>Our rooftop terrace offers some of the finest sunrise vantage points in Kumaon. Golden light spilling over pine-covered ridges — a photographer's paradise every morning.</p>
         </div>
         <div class="exp-card" data-aos="fade-up" data-aos-delay="300">
           <div class="exp-icon"><i class="fas fa-fire-alt"></i></div>
@@ -324,9 +341,9 @@
           <p>As the Himalayan night settles in, gather around our bonfire under a canopy of stars. Sip kahwa, share stories, and feel the warmth beneath a sky undimmed by city lights.</p>
         </div>
         <div class="exp-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="exp-icon"><i class="fas fa-spa"></i></div>
-          <h3>Kumaoni Wellness</h3>
-          <p>Indulge in traditional Kumaoni oil massages and herbal therapy using locally sourced medicinal herbs. Let the mountains heal you from the inside out.</p>
+          <div class="exp-icon"><i class="fas fa-music"></i></div>
+          <h3>Musical Nights</h3>
+          <p>Enjoy live music sessions under the open Himalayan sky. Whether it's folk Kumaoni tunes or DJ nights, the mountains set the perfect stage for an unforgettable evening.</p>
         </div>
         <div class="exp-card" data-aos="fade-up" data-aos-delay="500">
           <div class="exp-icon"><i class="fas fa-binoculars"></i></div>
@@ -343,14 +360,38 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-eyebrow">Visual Stories</span>
         <h2 class="section-title">Life at Surya Inn</h2>
+        <p class="section-desc">Real moments, real views — straight from our Instagram <a href="https://www.instagram.com/thesuryainn/" target="_blank" rel="noopener" class="insta-link"><i class="fab fa-instagram"></i> @thesuryainn</a></p>
       </div>
       <div class="gallery-grid" data-aos="fade-up">
-        <div class="gallery-item g-tall"><div class="img-placeholder img-g1"><div class="gallery-hover"><i class="fas fa-expand"></i></div></div></div>
-        <div class="gallery-item"><div class="img-placeholder img-g2"><div class="gallery-hover"><i class="fas fa-expand"></i></div></div></div>
-        <div class="gallery-item"><div class="img-placeholder img-g3"><div class="gallery-hover"><i class="fas fa-expand"></i></div></div></div>
-        <div class="gallery-item g-wide"><div class="img-placeholder img-g4"><div class="gallery-hover"><i class="fas fa-expand"></i></div></div></div>
-        <div class="gallery-item"><div class="img-placeholder img-g5"><div class="gallery-hover"><i class="fas fa-expand"></i></div></div></div>
-        <div class="gallery-item g-tall"><div class="img-placeholder img-g6"><div class="gallery-hover"><i class="fas fa-expand"></i></div></div></div>
+        <div class="gallery-item g-tall">
+          <img src="images/hero-exterior.jpg" alt="Surya Inn Resort exterior illuminated at night" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/terrace-view.jpg" alt="Rooftop terrace with panoramic Himalayan valley view" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/heart-view.jpg" alt="Romantic heart bench with misty valley morning view" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item g-wide">
+          <img src="images/balcony-mountains.jpg" alt="Mountain balcony view at Surya Inn" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/birthday-party.jpg" alt="Birthday party celebration at Surya Inn" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item g-tall">
+          <img src="images/wedding-decor.jpg" alt="Wedding decoration with floral arch at Surya Inn" />
+          <div class="gallery-hover"><i class="fas fa-expand"></i></div>
+        </div>
+      </div>
+      <div class="gallery-insta-cta" data-aos="fade-up">
+        <a href="https://www.instagram.com/thesuryainn/" target="_blank" rel="noopener" class="btn-insta">
+          <i class="fab fa-instagram"></i> Follow us @thesuryainn for more
+        </a>
       </div>
     </div>
   </section>
@@ -365,17 +406,17 @@
       <div class="testi-grid">
         <div class="testi-card" data-aos="fade-up" data-aos-delay="0">
           <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p>"The most peaceful place I've ever stayed. Woke up to mist rolling over the mountains, had chai on the balcony — I never wanted to leave. The staff treated us like family."</p>
+          <p>"The most peaceful place I've ever stayed. Woke up to mist rolling over the mountains, had chai on the terrace — I never wanted to leave. The staff treated us like family."</p>
           <div class="testi-author"><div class="testi-avatar">A</div><div><strong>Ananya Sharma</strong><span>Delhi</span></div></div>
         </div>
         <div class="testi-card featured" data-aos="fade-up" data-aos-delay="150">
           <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p>"Surya Inn completely exceeded our expectations. The valley view room was stunning, the food was absolutely delicious — especially the Aloo ke Gutke. Bhimtal Lake boating was the highlight. Will definitely return!"</p>
+          <p>"We celebrated our anniversary here and it was absolutely magical. The valley view, the bonfire, the food — everything was perfect. Will definitely return for our wedding!"</p>
           <div class="testi-author"><div class="testi-avatar">R</div><div><strong>Rahul & Priya Mehta</strong><span>Pune</span></div></div>
         </div>
         <div class="testi-card" data-aos="fade-up" data-aos-delay="300">
           <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p>"Perfect weekend getaway from the city chaos. The sunrise from our room was something I'll never forget. Clean, cozy, and incredibly warm hospitality. A true hidden gem of Kumaon."</p>
+          <p>"Perfect birthday getaway from city chaos. The surprise decoration in our room was stunning. Clean, cozy, and incredibly warm hospitality. A true hidden gem of Kumaon."</p>
           <div class="testi-author"><div class="testi-avatar">V</div><div><strong>Vikram Nair</strong><span>Bangalore</span></div></div>
         </div>
       </div>
@@ -388,7 +429,7 @@
       <div class="section-header" data-aos="fade-up">
         <span class="section-eyebrow">Find Us</span>
         <h2 class="section-title">Get In Touch</h2>
-        <p class="section-desc">Ready to escape? We'd love to host you. Reach out to plan your perfect Bhimtal getaway.</p>
+        <p class="section-desc">Ready to escape? We'd love to host you. Call or message us to plan your perfect Bhimtal getaway.</p>
       </div>
       <div class="contact-grid">
         <!-- Form -->
@@ -411,11 +452,15 @@
                 <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
               </div>
               <div class="form-group">
-                <label for="guests">No. of Guests</label>
-                <select id="guests" name="guests">
+                <label for="eventtype">Type of Stay / Event</label>
+                <select id="eventtype" name="eventtype">
                   <option value="">Select</option>
-                  <option>1</option><option>2</option><option>3</option>
-                  <option>4</option><option>5+</option>
+                  <option>Room Stay</option>
+                  <option>Wedding</option>
+                  <option>Birthday Party</option>
+                  <option>Anniversary</option>
+                  <option>Corporate Retreat</option>
+                  <option>Other Event</option>
                 </select>
               </div>
             </div>
@@ -431,7 +476,7 @@
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell us about your stay, any special requests..."></textarea>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your stay, event requirements, special requests..."></textarea>
             </div>
             <button type="submit" class="btn-submit">
               <i class="fas fa-paper-plane"></i> Send Enquiry
@@ -447,46 +492,45 @@
               <i class="fas fa-map-marker-alt"></i>
               <div>
                 <strong>Address</strong>
-                <p>The Surya Inn (Mid-Valley Stay)<br>Bhimtal, Nainital District<br>Uttarakhand — 263136</p>
+                <p>The Surya Inn Resort & Cottages<br>Bhimtal–Haldwani Highway, Kwerali Village<br>Bhimtal, Nainital — Uttarakhand</p>
               </div>
             </div>
             <div class="contact-item">
               <i class="fas fa-phone-alt"></i>
               <div>
-                <strong>Reservations</strong>
-                <p><a href="tel:+919999999999">+91 99999 99999</a><br><a href="tel:+911234567890">+91 12345 67890</a></p>
+                <strong>Reservations & Events</strong>
+                <p><a href="tel:+918630330578">+91 86303 30578</a><br><a href="tel:+919761597305">+91 97615 97305</a><br><a href="tel:+919897032551">+91 98970 32551</a></p>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fas fa-envelope"></i>
+              <i class="fab fa-whatsapp"></i>
               <div>
-                <strong>Email</strong>
-                <p><a href="mailto:stay@suryainn.com">stay@suryainn.com</a></p>
+                <strong>WhatsApp</strong>
+                <p><a href="https://wa.me/918630330578" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
               </div>
             </div>
             <div class="contact-item">
               <i class="fas fa-clock"></i>
               <div>
                 <strong>Check-in / Check-out</strong>
-                <p>Check-in: 12:00 PM<br>Check-out: 11:00 AM</p>
+                <p>Check-in: 12:00 PM · Check-out: 11:00 AM</p>
               </div>
             </div>
             <div class="social-links">
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-              <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+              <a href="https://www.instagram.com/thesuryainn/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/918630330578" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://maps.app.goo.gl/ew24woKizMKS2aKJ7" target="_blank" rel="noopener" aria-label="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
             </div>
           </div>
           <!-- Map -->
           <div class="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.5!2d79.5403923!3d29.3139368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a099c6ad14d9f5%3A0xf6608781ca7e3582!2sThe%20Surya%20Inn(Mid-Valley%20Stay)!5e0!3m2!1sen!2sin!4v1700000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878.8!2d79.5429672!3d29.3139321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a099c6ad14d9f5%3A0xf6608781ca7e3582!2sThe%20Surya%20Inn(Mid-Valley%20Stay)!5e0!3m2!1sen!2sin!4v1700000000000"
               width="100%" height="260" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade" title="Surya Inn location on Google Maps">
             </iframe>
-            <a href="https://www.google.com/maps/place/The+Surya+Inn(Mid-Valley+Stay)/@29.3139368,79.5403923,17z" target="_blank" rel="noopener" class="map-link">
-              <i class="fas fa-directions"></i> Get Directions
+            <a href="https://maps.app.goo.gl/ew24woKizMKS2aKJ7" target="_blank" rel="noopener" class="map-link">
+              <i class="fas fa-directions"></i> Get Directions on Google Maps
             </a>
           </div>
         </div>
@@ -503,10 +547,15 @@
             <span class="logo-icon">☀</span>
             <div class="logo-text">
               <span class="logo-main">Surya Inn</span>
-              <span class="logo-sub">Mid-Valley Stay · Bhimtal</span>
+              <span class="logo-sub">Resort & Cottages · Bhimtal</span>
             </div>
           </div>
           <p>A sanctuary nestled in the valleys of Kumaon. Where every morning greets you with mountain mist, birdsong, and the promise of something beautiful.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/thesuryainn/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/918630330578" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://maps.app.goo.gl/ew24woKizMKS2aKJ7" target="_blank" rel="noopener" aria-label="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
+          </div>
         </div>
         <div class="footer-links">
           <h4>Quick Links</h4>
@@ -514,37 +563,35 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#events">Events</a></li>
             <li><a href="#experience">Experiences</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">
-          <h4>Explore</h4>
+          <h4>Nearby Places</h4>
           <ul>
             <li><a href="#">Bhimtal Lake</a></li>
             <li><a href="#">Naukuchiatal</a></li>
             <li><a href="#">Sattal</a></li>
             <li><a href="#">Nainital (25 km)</a></li>
             <li><a href="#">Mukteshwar (30 km)</a></li>
+            <li><a href="#">Haldwani (35 km)</a></li>
           </ul>
         </div>
         <div class="footer-contact">
           <h4>Contact</h4>
-          <p><i class="fas fa-map-marker-alt"></i> Bhimtal, Uttarakhand</p>
-          <p><i class="fas fa-phone-alt"></i> +91 99999 99999</p>
-          <p><i class="fas fa-envelope"></i> stay@suryainn.com</p>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          </div>
+          <p><i class="fas fa-map-marker-alt"></i> Kwerali Village, Bhimtal, Uttarakhand</p>
+          <p><i class="fas fa-phone-alt"></i> <a href="tel:+918630330578" style="color:inherit">+91 86303 30578</a></p>
+          <p><i class="fas fa-phone-alt"></i> <a href="tel:+919761597305" style="color:inherit">+91 97615 97305</a></p>
+          <p><i class="fas fa-phone-alt"></i> <a href="tel:+919897032551" style="color:inherit">+91 98970 32551</a></p>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2026 Surya Inn, Bhimtal. All rights reserved.</p>
+        <p>&copy; 2026 Surya Inn Resort & Cottages, Bhimtal. All rights reserved.</p>
         <p>Crafted with <i class="fas fa-heart"></i> for the mountains</p>
       </div>
     </div>
@@ -554,6 +601,11 @@
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
     <i class="fas fa-chevron-up"></i>
   </button>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/918630330578" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- Form success toast -->
   <div id="toast" class="toast">
