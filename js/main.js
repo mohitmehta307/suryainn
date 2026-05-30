@@ -1,3 +1,18 @@
+/* ─── PROMO BANNER ─── */
+const promoBanner = document.getElementById('promoBanner');
+const promoClose  = document.getElementById('promoClose');
+if (promoClose && promoBanner) {
+  promoClose.addEventListener('click', () => {
+    promoBanner.classList.add('hidden');
+    navbar.classList.add('banner-gone');
+    sessionStorage.setItem('promoClosed', '1');
+  });
+  if (sessionStorage.getItem('promoClosed')) {
+    promoBanner.classList.add('hidden');
+    document.getElementById('navbar').classList.add('banner-gone');
+  }
+}
+
 /* ─── NAVBAR SCROLL ─── */
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
