@@ -64,12 +64,12 @@ ul { list-style: none; }
 /* ─── PROMO BANNER ─── */
 .promo-banner {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
-  background: linear-gradient(90deg, #1e3a2f 0%, #2d5a3d 40%, #c9a84c 60%, #1e3a2f 100%);
-  padding: 0; overflow: hidden;
+  background: linear-gradient(90deg, #1e3a2f 0%, #2d5a3d 35%, #c9a84c 65%, #1e3a2f 100%);
+  overflow: hidden;
   transform: translateY(0);
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
-/* shimmer sweep via pseudo-element — GPU-safe (only opacity + transform) */
+/* shimmer sweep — GPU-safe */
 .promo-banner::after {
   content: '';
   position: absolute; inset: 0;
@@ -90,16 +90,15 @@ ul { list-style: none; }
   pointer-events: none;
 }
 .promo-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: 9px 2rem;
+  padding: 8px 3rem 8px 1rem; /* right padding makes room for close btn */
   display: flex; align-items: center; justify-content: center;
-  gap: 12px; flex-wrap: wrap;
+  gap: 10px;
   position: relative;
+  /* no flex-wrap — keep everything on one line */
 }
 .promo-pulse {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #fff;
-  flex-shrink: 0;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #fff; flex-shrink: 0;
   animation: promoPulse 1.4s ease-in-out infinite;
   will-change: opacity, transform;
 }
@@ -108,33 +107,37 @@ ul { list-style: none; }
   50%      { opacity: 0.4; transform: scale(0.7); }
 }
 .promo-text {
-  font-size: 0.85rem; color: #fff;
-  letter-spacing: 0.02em; text-align: center;
+  font-size: 0.83rem; color: #fff;
+  letter-spacing: 0.01em; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+  flex: 1; min-width: 0;
 }
 .promo-text strong { color: #fff5cc; }
 .promo-cta {
-  display: inline-flex; align-items: center;
+  display: inline-flex; align-items: center; flex-shrink: 0;
   background: #fff; color: var(--green-dark);
-  font-size: 0.78rem; font-weight: 800;
+  font-size: 0.75rem; font-weight: 800;
   letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 5px 16px; border-radius: 20px;
-  white-space: nowrap; flex-shrink: 0;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  padding: 4px 14px; border-radius: 20px;
+  white-space: nowrap;
+  transition: background var(--transition), transform var(--transition);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-.promo-cta:hover {
-  background: #ffe57a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-}
+.promo-cta:hover { background: #ffe57a; transform: translateY(-1px); }
 .promo-close {
-  position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 0.7rem; top: 50%; transform: translateY(-50%);
   background: none; border: none;
-  color: rgba(255,255,255,0.65); font-size: 1.2rem;
-  cursor: pointer; line-height: 1; padding: 4px 6px;
+  color: rgba(255,255,255,0.7); font-size: 1.1rem;
+  cursor: pointer; line-height: 1; padding: 4px 5px;
+  flex-shrink: 0;
   transition: color var(--transition);
 }
 .promo-close:hover { color: #fff; }
+@media (max-width: 480px) {
+  .promo-text { font-size: 0.72rem; }
+  .promo-cta  { font-size: 0.68rem; padding: 4px 10px; }
+  .promo-pulse { display: none; }
+}
 
 /* Push navbar down when banner is visible */
 #navbar { top: 36px; transition: top 0.4s ease, background var(--transition), padding var(--transition), box-shadow var(--transition); }
