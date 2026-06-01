@@ -30,10 +30,12 @@
       "Bash(sed -i 's|<button class=\"rpc-btn rpc-prev\"><i class=\"fas fa-chevron-left\"></i></button>|<button type=\"button\" class=\"rpc-btn rpc-prev\" aria-label=\"Previous photo\"><i class=\"fas fa-chevron-left\"></i></button>|g' /c/Users/mohit.mehta/Desktop/suryainn/index.html)",
       "Bash(sed -i 's|<button class=\"rpc-btn rpc-next\"><i class=\"fas fa-chevron-right\"></i></button>|<button type=\"button\" class=\"rpc-btn rpc-next\" aria-label=\"Next photo\"><i class=\"fas fa-chevron-right\"></i></button>|g' /c/Users/mohit.mehta/Desktop/suryainn/index.html)",
       "Bash(python3 -c ' *)",
-      "Bash(ffprobe -v quiet -print_format json -show_streams images/hero-video.mp4)"
+      "Bash(ffprobe -v quiet -print_format json -show_streams images/hero-video.mp4)",
+      "Bash(sed -i 's|midvalleystay\\\\.com|suryainnresort.com|g' /c/Users/mohit.mehta/Desktop/suryainn/index.html /c/Users/mohit.mehta/Desktop/suryainn/sitemap.xml /c/Users/mohit.mehta/Desktop/suryainn/robots.txt && echo \"done\")"
     ],
     "additionalDirectories": [
-      "c:\\Users\\mohit.mehta\\Desktop\\suryainn\\trading"
+      "c:\\Users\\mohit.mehta\\Desktop\\suryainn\\trading",
+      "C:\\Users\\mohit.mehta\\Desktop\\suryainn"
     ]
   }
 }
